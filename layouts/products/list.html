@@ -46,13 +46,16 @@
                 <div class="w-full h-64 flex items-center justify-center text-red-400 product-fallback">Image Missing</div>
               {{ end }}
 
-{{ $launch := time .Params.launch_Date }}
-{{ $sixMonthsAgo := now.AddDate 0 -6 0 }}
-{{ if ge $launch $sixMonthsAgo }}
-<span class="absolute top-2 left-2 bg-green-500 text-white text-xs font-semibold px-2 py-0.5 rounded">
-      NEW
-</span>
+{{ with .Params.launch_Date }}
+    {{ $launch := time . }}
+    {{ $sixMonthsAgo := now.AddDate 0 -6 0 }}
+    {{ if ge $launch $sixMonthsAgo }}
+        <span class="absolute top-2 left-2 bg-green-500 text-white text-xs font-semibold px-2 py-0.5 rounded">
+            NEW
+        </span>
+    {{ end }}
 {{ end }}
+
   
 
               <!-- Desktop arrows (only show on md+) -->
