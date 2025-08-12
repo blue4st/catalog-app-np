@@ -1,0 +1,23 @@
+{{ if not .IsHome }}
+  {{ $segments := (split (trim .RelPermalink "/") "/") }}
+  {{ $count := len $segments }}
+  {{ if gt $count 1 }}
+    {{ $parentSegments := slice }}
+    {{ range $i, $seg := $segments }}
+      {{ if lt $i (sub $count 1) }}
+        {{ $parentSegments = $parentSegments | append $seg }}
+      {{ end }}
+    {{ end }}
+    {{ $parent := index $segments (sub $count 2) }}
+    {{ $parentURL := delimit $parentSegments "/" }}
+
+    <div class="w-full max-w-6xl mx-auto px-4 mb-4 animate-fade-in">
+      <a href="/{{ $parentURL }}/" class="inline-flex items-center text-sm text-blue-200 hover:text-blue-400 transition">
+        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to {{ humanize $parent }}
+      </a>
+    </div>
+  {{ end }}
+{{ end }}

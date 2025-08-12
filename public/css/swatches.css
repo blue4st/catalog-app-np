@@ -1,0 +1,13 @@
+.product-viewer {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 600

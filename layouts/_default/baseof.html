@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-900 text-white min-h-screen flex flex-col">
+
+  <!-- Logo Header -->
+  <header class="py-3 text-center">
+    <a href="/">
+      <img src="/logo.png" alt="Logo" class="mx-auto h-14 object-contain">
+    </a>
+  </header>
+{{ partial "header.html" . }}
+{{ partial "breadcrumbs.html" . }}
+  <!-- Main content wrapper -->
+  <main class="flex-1 flex items-center justify-center px-8">
+    {{ block "main" . }}{{ end }}
+  </main>
+{{ partial "footer.html" . }}
+</body>
+</html>

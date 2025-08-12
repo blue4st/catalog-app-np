@@ -1,0 +1,23 @@
+handmade:
+  _default:
+    cost_price: 2000
+    discount: 10
+    selling_price: 1800
+    launch_date: "2025-08-01"
+
+  wood-classic:
+    cost_price: 1000
+    discount: 10
+    selling_price: 900
+    launch_date: "2025-06-01"
+
+Bag:
+  _default:
+    cost_price: 500
+    discount: 0
+    selling_price: 699
+    launch_date: "2025-07-15"
+
+  premium-bag:
+    cost_price: 600
+    selling_price: 799

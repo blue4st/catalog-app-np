@@ -1,0 +1,147 @@
+{{ define "main" }}
+<main class="min-h-screen flex flex-col items-center bg-inherit text-white px-4 py-0">
+  <h1 class="text-3xl font-bold text-center mb-4 tracking-wide">{{ .Title }}</h1>
+
+<div id="parallax-container"
+     class="relative w-full max-w-xl aspect-[4/3] mb-8 transition-transform duration-300 ease-out will-change-transform bg-inherit rounded-2xl overflow-hidden border border-zinc-800">
+
+    <!-- Stage Background -->
+<img src="/images/stage.jpg" alt="Stage background"
+     class="w-full h-full object-cover" />	
+
+
+    <!-- Product Image A -->
+    {{ $fallback := "/images/missing.jpg" }}
+    {{ $defaultColor := .Params.default_color }}
+{{ $default := or (.Resources.GetMatch $defaultColor) (.Resources.GetMatch (print $defaultColor ".jpeg")) }}
+{{ $default = or $default (.Resources.GetMatch (print $defaultColor ".png")) }}
+{{ $default = or $default (.Resources.GetMatch (print $defaultColor ".webp")) }}
+    <img
+      id="product-a"
+      src="{{ if $default }}{{ $default.RelPermalink }}{{ else }}{{ $fallback }}{{ end }}"
+      alt="{{ .Title }}"
+      class="absolute inset-0 w-full h-full object-contain
+             opacity-100 transition-opacity duration-700 ease-in-out"
+    />
+    <img
+      id="product-b"
+      src=""
+      alt=""
+      class="absolute inset-0 w-full h-full object-contain
+             opacity-0 pointer-events-none transition-opacity duration-700 ease-in-out"
+    />
+  </div>
+
+  <!-- Color Swatches -->
+  <div id="swatch-bar" class="flex flex-wrap gap-4 justify-center">
+    {{ $colors := .Params.colors | default slice }}
+    {{ range $i, $c := $colors }}
+      {{ $img := $c.image }}
+      {{ $resource := or ($.Resources.GetMatch $img) ($.Resources.GetMatch (print $img ".jpeg")) }}
+      {{ $resource := or $resource ($.Resources.GetMatch (print $img ".png")) }}
+	  {{ $default = or $default (.Resources.GetMatch (print $defaultColor ".webp")) }}
+      {{ $swatch := printf "/assets/swatches/%s.jpg" (lower (urlize $c.name)) }}
+      <div class="flex flex-col items-center text-sm">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="{{ $swatch }}"
+          alt="{{ $c.name }}"
+          title="{{ $c.name }}"
+          data-index="{{ $i }}"
+          onclick="changeColor('{{ if $resource }}{{ $resource.RelPermalink }}{{ else }}{{ $fallback }}{{ end }}', {{ $i }})"
+          id="swatch-{{ $i }}"
+        />
+        <span class="mt-1 text-xs text-zinc-400">{{ $c.name }}</span>
+      </div>
+    {{ end }}
+  </div>
+  <div class="product-description">
+  <br>
+  {{ .Content | markdownify }}
+</div>
+
+</main>
+
+<script>
+let isAVisible = true;
+let swatches = [
+  {{ range $colors }}
+    {{ $r := or ($.Resources.GetMatch .image) ($.Resources.GetMatch (print .image ".jpeg")) }}
+    {{ $r := or $r ($.Resources.GetMatch (print .image ".png")) }}
+    "{{ if $r }}{{ $r.RelPermalink }}{{ else }}/images/missing.jpg{{ end }}",
+  {{ end }}
+];
+
+let currentIndex = swatches.findIndex(src => src === "{{ if $default }}{{ $default.RelPermalink }}{{ else }}/images/missing.jpg{{ end }}");
+
+function changeColor(newSrc, newIndex) {
+  if (currentIndex === newIndex) return;
+
+  const imgA = document.getElementById("product-a");
+  const imgB = document.getElementById("product-b");
+
+  const incoming = isAVisible ? imgB : imgA;
+  const outgoing = isAVisible ? imgA : imgB;
+
+  const temp = new Image();
+  temp.onload = () => {
+    incoming.src = newSrc;
+    incoming.classList.remove("opacity-0");
+    outgoing.classList.add("opacity-0");
+    isAVisible = !isAVisible;
+
+    highlightSwatch(newIndex);
+    currentIndex = newIndex;
+  };
+  temp.src = newSrc;
+}
+
+function highlightSwatch(index) {
+  const all = document.querySelectorAll('[id^="swatch-"]');
+  all.forEach(el => {
+    el.classList.remove("border-white");
+    el.classList.add("border-zinc-700");
+  });
+  const active = document.getElementById(`swatch-${index}`);
+  if (active) {
+    active.classList.add("border-white");
+    active.classList.remove("border-zinc-700");
+  }
+}
+
+highlightSwatch(currentIndex);
+
+// === Parallax (Desktop) ===
+const container = document.getElementById("parallax-container");
+container.addEventListener("mousemove", (e) => {
+  const rect = container.getBoundingClientRect();
+  const x = e.clientX - rect.left - rect.width / 2;
+  const y = e.clientY - rect.top - rect.height / 2;
+  const rotateX = (-y / rect.height) * 10;
+  const rotateY = (x / rect.width) * 10;
+  container.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+});
+container.addEventListener("mouseleave", () => {
+  container.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+});
+
+// === Swipe (Mobile) ===
+let startX = null;
+container.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+}, { passive: true });
+
+container.addEventListener("touchend", (e) => {
+  if (startX === null) return;
+  const endX = e.changedTouches[0].clientX;
+  const diff = endX - startX;
+  if (Math.abs(diff) > 30) {
+    let newIndex = currentIndex;
+    if (diff < 0) newIndex = (currentIndex + 1) % swatches.length;
+    else newIndex = (currentIndex - 1 + swatches.length) % swatches.length;
+    changeColor(swatches[newIndex], newIndex);
+  }
+  startX = null;
+}, { passive: true });
+</script>
+{{ end }}

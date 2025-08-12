@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blue Forest Prints Catalog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Blue Forest Prints Catalog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bag1</title>
+      <link>http://localhost:1313/products/classic/bag1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/classic/bag1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bag1</title>
+      <link>http://localhost:1313/products/elite/bag1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/elite/bag1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bag1</title>
+      <link>http://localhost:1313/products/handmade/bag1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/handmade/bag1/</guid>
+      <description>Description coming soon.</description>
+    </item>
+    <item>
+      <title>Wood Classic</title>
+      <link>http://localhost:1313/products/classic/wood-classic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/classic/wood-classic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wood Classic</title>
+      <link>http://localhost:1313/products/elite/wood-classic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/elite/wood-classic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wood Classic</title>
+      <link>http://localhost:1313/products/handmade/wood-classic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/handmade/wood-classic/</guid>
+      <description>&lt;br&gt;This is a refined handcrafted item suitable for any space.</description>
+    </item>
+  </channel>
+</rss>

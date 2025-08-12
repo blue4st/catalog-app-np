@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/products/classic/bag1/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/elite/bag1/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/handmade/bag1/</loc>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/elite/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/handmade/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/wood-classic/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/elite/wood-classic/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/handmade/wood-classic/</loc>
+  </url>
+</urlset>

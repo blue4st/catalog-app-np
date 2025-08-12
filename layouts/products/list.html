@@ -1,0 +1,229 @@
+{{ define "main" }}
+<main class="relative bg-inherit text-white px-4 py-0 overflow-hidden">
+  <div class="relative z-10 max-w-7xl mx-auto flex flex-col min-h-[80vh]">
+    <!-- Title -->
+    <h1 class="text-3xl font-bold text-center mb-4 tracking-wide">{{ .Title }}</h1>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+      {{ range .Pages }}
+        {{ $p := . }}
+
+        {{/* build images array (preserve order matching colors) and default index */}}
+        {{ $images := slice }}
+        {{ $scr := newScratch }}
+        {{ $default := or ($p.Resources.GetMatch $p.Params.default_color) ($p.Resources.GetMatch (print $p.Params.default_color ".jpeg")) }}
+        {{ $default = or $default ($p.Resources.GetMatch (print $p.Params.default_color ".png")) }}
+
+        {{ range $i, $c := $p.Params.colors }}
+          {{ $res := or ($p.Resources.GetMatch $c.image) ($p.Resources.GetMatch (print $c.image ".jpeg")) }}
+          {{ $res = or $res ($p.Resources.GetMatch (print $c.image ".png")) }}
+          {{ if $res }}
+            {{ $images = $images | append $res.RelPermalink }}
+            {{ if and $default (eq $res.RelPermalink $default.RelPermalink) }}{{ $scr.Set "defaultIndex" $i }}{{ end }}
+          {{ else }}
+            {{/* keep placeholder so indices line up with colors */}}
+            {{ $images = $images | append "" }}
+          {{ end }}
+        {{ end }}
+
+        {{ $defaultIndex := $scr.Get "defaultIndex" | default 0 }}
+
+        <div
+          class="group relative rounded-2xl overflow-hidden shadow hover:shadow-xl hover:scale-[1.02] transition-transform duration-300"
+          style="background-image: url('/images/stage.jpg'); background-size: cover; background-position: center;"
+          data-images='{{ $images | jsonify }}'
+          data-default-index='{{ $defaultIndex }}'
+        >
+
+          <div class="bg-zinc-900 bg-opacity-80 p-2 h-full w-full flex flex-col">
+            <!-- clickable product area (link) -->
+            <a href="{{ $p.RelPermalink }}" class="block relative overflow-hidden touch-pan-y product-link">
+              {{ $default := $default }}
+              {{ if $default }}
+                <img src="{{ $default.RelPermalink }}" alt="{{ $p.Title }}" class="w-full h-64 object-contain product-image" />
+              {{ else }}
+                <div class="w-full h-64 flex items-center justify-center text-red-400 product-fallback">Image Missing</div>
+              {{ end }}
+
+{{ $launch := time .Params.launch_Date }}
+{{ $sixMonthsAgo := now.AddDate 0 -6 0 }}
+{{ if ge $launch $sixMonthsAgo }}
+<span class="absolute top-2 left-2 bg-green-500 text-white text-xs font-semibold px-2 py-0.5 rounded">
+      NEW
+</span>
+{{ end }}
+  
+
+              <!-- Desktop arrows (only show on md+) -->
+              <div class="hidden md:flex absolute inset-y-0 left-0 items-center opacity-0 group-hover:opacity-100 transition">
+                <button class="bg-black bg-opacity-50 text-white px-2 py-1 hover:bg-opacity-75" data-prev>‹</button>
+              </div>
+              <div class="hidden md:flex absolute inset-y-0 right-0 items-center opacity-0 group-hover:opacity-100 transition">
+                <button class="bg-black bg-opacity-50 text-white px-2 py-1 hover:bg-opacity-75" data-next>›</button>
+              </div>
+            </a>
+
+            <div class="p-4 flex-grow flex flex-col justify-between">
+              <div>
+                <a href="{{ $p.RelPermalink }}">
+                  <h2 class="text-xl font-semibold mb-1 group-hover:text-white text-zinc-300">{{ $p.Title }}</h2>
+                </a>
+
+                {{ with $p.Params.selling_price }}
+                  <p class="text-sm text-lime-300 mb-1">₹{{ . }}</p>
+                {{ end }}
+              </div>
+
+              <!-- Swatches (first 5) -->
+              {{ with $p.Params.colors }}
+                <div class="flex space-x-2 mt-3">
+                  {{ range $i, $c := first 5 . }}
+                    {{ $swatch := printf "/assets/swatches/%s.jpg" (lower (urlize $c.name)) }}
+                    <img
+                      src="{{ $swatch }}"
+                      alt="{{ $c.name }}"
+                      class="w-6 h-6 rounded-full border border-white object-cover cursor-pointer swatch-thumbnail"
+                      title="{{ $c.name }}"
+                      data-color-index="{{ $i }}"
+                    />
+                  {{ end }}
+                  {{ if gt (len .) 5 }}
+                    <span class="text-xs text-zinc-400">+{{ sub (len .) 5 }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".group[data-images]").forEach(card => {
+    let productImages = [];
+    try {
+      productImages = JSON.parse(card.dataset.images);
+    } catch (e) {
+      console.error("Invalid data-images JSON for card:", e, card.dataset.images);
+    }
+
+    const defaultIndex = parseInt(card.dataset.defaultIndex || "0", 10) || 0;
+    const imgEl = card.querySelector(".product-image");
+    const fallbackDiv = card.querySelector(".product-fallback");
+    const linkEl = card.querySelector(".product-link");
+
+    const findValidIndex = (start) => {
+      if (!productImages || productImages.length === 0) return -1;
+      const n = productImages.length;
+      for (let i = 0; i < n; i++) {
+        const idx = (start + i) % n;
+        if (productImages[idx]) return idx;
+      }
+      return -1;
+    };
+
+    let index = findValidIndex(defaultIndex);
+    if (index === -1) index = findValidIndex(0);
+
+    const updateImage = () => {
+      const url = (productImages[index] && productImages[index].length) ? productImages[index] : null;
+      if (url && imgEl) {
+        imgEl.src = url;
+        if (fallbackDiv) fallbackDiv.style.display = 'none';
+      } else if (fallbackDiv) {
+        fallbackDiv.style.display = 'flex';
+      }
+    };
+
+    // Highlight swatches
+    const highlightSwatch = (i) => {
+      card.querySelectorAll(".swatch-thumbnail").forEach(s => s.classList.remove("swatch-selected"));
+      const target = card.querySelector(`.swatch-thumbnail[data-color-index="${i}"]`);
+      if (target) target.classList.add("swatch-selected");
+    };
+
+    // Arrows
+    const prevBtn = card.querySelector("[data-prev]");
+    const nextBtn = card.querySelector("[data-next]");
+    const navigate = (delta) => {
+      if (!productImages || productImages.length === 0) return;
+      const n = productImages.length;
+      for (let attempt = 0; attempt < n; attempt++) {
+        index = (index + delta + n) % n;
+        if (productImages[index]) break;
+      }
+      updateImage();
+      highlightSwatch(index);
+    };
+
+    if (prevBtn) prevBtn.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); navigate(-1); });
+    if (nextBtn) nextBtn.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); navigate(1); });
+
+    // Swatch click handling
+    card.querySelectorAll(".swatch-thumbnail").forEach(swatch => {
+      swatch.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const i = parseInt(swatch.dataset.colorIndex || "0", 10);
+        if (productImages[i]) {
+          index = i;
+          updateImage();
+          highlightSwatch(index);
+        }
+      });
+    });
+
+    // Swipe
+    let touchStartX = 0;
+    let touchMoved = false;
+    const swipeThreshold = 40;
+    card.addEventListener("touchstart", e => {
+      touchStartX = e.touches[0].clientX;
+      touchMoved = false;
+    }, { passive: true });
+    card.addEventListener("touchmove", e => {
+      const dx = Math.abs(e.touches[0].clientX - touchStartX);
+      if (dx > 10) touchMoved = true;
+    }, { passive: true });
+    card.addEventListener("touchend", e => {
+      const touchEndX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : 0;
+      const diff = touchEndX - touchStartX;
+      if (!touchMoved) return;
+      card.dataset.swiped = "1";
+      setTimeout(() => { delete card.dataset.swiped; }, 400);
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) navigate(-1);
+        else navigate(1);
+      }
+    }, { passive: true });
+
+    if (linkEl) {
+      linkEl.addEventListener("click", function (ev) {
+        if (card.dataset.swiped) {
+          ev.preventDefault();
+          ev.stopPropagation();
+        }
+      }, true);
+    }
+
+    // Initial render and highlight first swatch
+    if (index >= 0) {
+      updateImage();
+      highlightSwatch(index);
+    }
+  });
+});
+</script>
+
+<style>
+.swatch-selected {
+  outline: 2px solid #ffff;
+  box-shadow: 0 0 0 1px #ffff;
+}
+</style>
+
+{{ end }}
