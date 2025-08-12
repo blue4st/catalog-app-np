@@ -15,7 +15,7 @@ colors:
   - name: Red
     image: wood-classic_red.webp
     color: "#f5f5f5"
-default_color: wood-classic_red.webp
+default_color: wood-classic_blue.webp
 ---
 
 <br>This is a refined handcrafted item suitable for any space.
