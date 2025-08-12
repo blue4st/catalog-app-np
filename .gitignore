@@ -1,0 +1,17 @@
+# Ignore a specific file
+secret.txt
+
+# Ignore all .log files
+*.log
+
+# Ignore an entire folder
+assets\scanned-colors
+
+# Ignore all .env files
+*.env
+
+# Ignore files in subfolder
+dist/
+
+# Negate (un-ignore) a file inside an ignored folder
+!important.log
