@@ -1,52 +1,46 @@
 colors:
   - name: Rose Pink
-    image: rose pink.jpg
+    image: rose-pink.jpg
     color: "#1a1a1a"
-  - name: Warm Camel
-    image: warm camel.jpg
+  - name: Light Desert
+    image: light-desert.jpg
     color: "#d2b48c"
   - name: Pro Grey
-    image: pro grey.jpg
+    image: pro-grey.jpg
     color: "#f5f5f5"
-  - name: Blood Maroon
-    image: blood maroon.jpg
-    color: "#1a1a1a"
   - name: Bottle Green
-    image: bottle green.jpg
+    image: bottle-green.jpg
     color: "#d2b48c"
-  - name: Bride Mehndi
-    image: bride mehndi.jpg
+  - name: Mehndi Green
+    image: mehndi-green.jpg
     color: "#f5f5f5"    
   - name: Butter Cream
-    image: butter cream.jpg
+    image: butter-cream.jpg
     color: "#1a1a1a"
   - name: Cloud Grey
-    image: cloud grey.jpg
+    image: cloud-grey.jpg
     color: "#d2b48c"
-  - name: Deep Black
-    image: deep black.jpg
-    color: "#f5f5f5"
-  - name: Light Desert
-    image: light desert.jpg
+  - name: Golden Desert
+    image: golden-desert.jpg
     color: "#1a1a1a"
   - name: Obsedian Brown
-    image: obsedian brown.jpg
+    image: obsedian-brown.jpg
     color: "#d2b48c"
-  - name: Snake Green
-    image: snake green.jpg
+  - name: Euro Green
+    image: euro-green.jpg
     color: "#f5f5f5"
   - name: Steel Pink
-    image: steel pink.jpg
+    image: steel-pink.jpg
     color: "#d2b48c"
   - name: Pro Tan
-    image: pro tan.jpg
+    image: pro-tan.jpg
     color: "#f5f5f5"
   - name: Royal Blue
-    image: royal blue.jpg
+    image: royal-blue.jpg
     color: "#1a1a1a"
-  - name: Ruby Red
-    image: ruby red.jpg
+  - name: Ruby Maroon
+    image: ruby-maroon.jpg
     color: "#d2b48c"
   - name: Rust Orange
-    image: rust orange.jpg
+    image: rust-orange.jpg
     color: "#f5f5f5"    
