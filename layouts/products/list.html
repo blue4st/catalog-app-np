@@ -82,7 +82,7 @@
               {{ with $p.Params.colors }}
                 <div class="flex space-x-2 mt-3">
                   {{ range $i, $c := first 5 . }}
-                    {{ $swatch := printf "/assets/swatches/%s.jpg" (lower (urlize $c.name)) }}
+				  {{ $swatch := printf "/assets/swatches/%s.jpg" (replace $c.name " " "%20") }}
                     <img
                       src="{{ $swatch }}"
                       alt="{{ $c.name }}"

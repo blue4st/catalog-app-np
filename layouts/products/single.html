@@ -2,20 +2,19 @@
 <main class="min-h-screen flex flex-col items-center bg-inherit text-white px-4 py-0">
   <h1 class="text-3xl font-bold text-center mb-4 tracking-wide">{{ .Title }}</h1>
 
-<div id="parallax-container"
-     class="relative w-full max-w-xl aspect-[4/3] mb-8 transition-transform duration-300 ease-out will-change-transform bg-inherit rounded-2xl overflow-hidden border border-zinc-800">
+  <div id="parallax-container"
+       class="relative w-full max-w-xl aspect-[4/3] mb-2 transition-transform duration-300 ease-out will-change-transform bg-inherit rounded-2xl overflow-hidden border border-zinc-800">
 
     <!-- Stage Background -->
-<img src="/images/stage.jpg" alt="Stage background"
-     class="w-full h-full object-cover" />	
-
+    <img src="/images/stage.jpg" alt="Stage background"
+         class="w-full h-full object-cover" />	
 
     <!-- Product Image A -->
     {{ $fallback := "/images/missing.jpg" }}
     {{ $defaultColor := .Params.default_color }}
-{{ $default := or (.Resources.GetMatch $defaultColor) (.Resources.GetMatch (print $defaultColor ".jpeg")) }}
-{{ $default = or $default (.Resources.GetMatch (print $defaultColor ".png")) }}
-{{ $default = or $default (.Resources.GetMatch (print $defaultColor ".webp")) }}
+    {{ $default := or (.Resources.GetMatch $defaultColor) (.Resources.GetMatch (print $defaultColor ".jpeg")) }}
+    {{ $default = or $default (.Resources.GetMatch (print $defaultColor ".png")) }}
+    {{ $default = or $default (.Resources.GetMatch (print $defaultColor ".webp")) }}
     <img
       id="product-a"
       src="{{ if $default }}{{ $default.RelPermalink }}{{ else }}{{ $fallback }}{{ end }}"
@@ -32,6 +31,13 @@
     />
   </div>
 
+  <!-- Share button below image -->
+  <div class="w-full max-w-xl flex justify-end mb-0">
+    <button id="share-button" class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700">
+      <i class="fas fa-share-alt"></i> Share
+    </button>
+  </div>
+
   <!-- Color Swatches -->
   <div id="swatch-bar" class="flex flex-wrap gap-4 justify-center">
     {{ $colors := .Params.colors | default slice }}
@@ -39,8 +45,8 @@
       {{ $img := $c.image }}
       {{ $resource := or ($.Resources.GetMatch $img) ($.Resources.GetMatch (print $img ".jpeg")) }}
       {{ $resource := or $resource ($.Resources.GetMatch (print $img ".png")) }}
-	  {{ $default = or $default (.Resources.GetMatch (print $defaultColor ".webp")) }}
-      {{ $swatch := printf "/assets/swatches/%s.jpg" (lower (urlize $c.name)) }}
+      {{ $default = or $default (.Resources.GetMatch (print $defaultColor ".webp")) }}
+      {{ $swatch := printf "/assets/swatches/%s.jpg" (replace $c.name " " "%20") }}
       <div class="flex flex-col items-center text-sm">
         <img
           class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
@@ -55,10 +61,16 @@
       </div>
     {{ end }}
   </div>
+  <!-- Fine print below description -->
+  <p class="text-xs text-zinc-500 mt-2 max-w-xl text-center italic">
+    Exact color may vary depending on the display
+  </p>
   <div class="product-description">
-  <br>
-  {{ .Content | markdownify }}
-</div>
+    <br>
+    {{ .Content | markdownify }}
+  </div>
+
+
 
 </main>
 

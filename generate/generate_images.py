@@ -102,7 +102,7 @@ def save_variant_and_swatch(product_folder, base_file, color_def):
         new_width = int(output.width * scale)
         new_height = int(output.height * scale)
         output = output.resize((new_width, new_height), Image.LANCZOS)
-        print(f"📏 Resized to {new_width}x{new_height} (~2MP)")
+        print(f"📏 Resized to {new_width}x{new_height} (~1MP)")
         
 # Save as lossy WebP for fast load times
     output.save(output_path, format="WEBP", quality=85, method=6)  # quality 85 is a good balance

@@ -60,38 +60,52 @@
 <main class="min-h-screen flex flex-col items-center bg-inherit text-white px-4 py-0">
   <h1 class="text-3xl font-bold text-center mb-4 tracking-wide">Bag1</h1>
 
-<div id="parallax-container"
-     class="relative w-full max-w-xl aspect-[4/3] mb-8 transition-transform duration-300 ease-out will-change-transform bg-inherit rounded-2xl overflow-hidden border border-zinc-800">
+
+<div class="relative w-full max-w-xl mb-1 rounded-2xl overflow-hidden border border-zinc-800" style="aspect-ratio: 4 / 3;">
+  <img src="/images/stage.jpg" alt="Stage background"
+       class="absolute inset-0 w-full h-full object-cover" />
+
+  
+  <div id="parallax-container"
+       class="relative w-full h-full min-w-[300px] min-h-[225px] transition-transform duration-300 ease-out will-change-transform bg-inherit">
 
     
-<img src="/images/stage.jpg" alt="Stage background"
-     class="w-full h-full object-cover" />	
-
-
     
     
     
-
-
-
+    
+    
+    
     <img
       id="product-a"
       src="/products/elite/bag1/bag1_blue.jpg"
       alt="Bag1"
-      class="absolute inset-0 w-full h-full object-contain
+      class="absolute inset-0 w-full h-full object-cover
              opacity-100 transition-opacity duration-700 ease-in-out"
     />
     <img
       id="product-b"
       src=""
       alt=""
-      class="absolute inset-0 w-full h-full object-contain
+      class="absolute inset-0 w-full h-full object-cover
              opacity-0 pointer-events-none transition-opacity duration-700 ease-in-out"
     />
   </div>
+</div>
+
+<div class="flex w-full justify-center">
+      <small class="text-xs text-zinc-400 italic justify-start">
+    *Exact color may vary depending on the display
+  </small>
+</div>
+<div class="flex w-full justify-end">
+  <button id="share-button" class="hover:text-white transition flex items-center gap-1">
+  <i class="fas fa-share-alt"></i> Share
+</button>
+</div>
 
   
-  <div id="swatch-bar" class="flex flex-wrap gap-4 justify-center">
+  <div id="swatch-bar" class="flex flex-wrap gap-4 justify-center mb-3">
     
     
       
@@ -149,6 +163,7 @@
       </div>
     
   </div>
+
   <div class="product-description">
   <br>
   
@@ -246,6 +261,24 @@ container.addEventListener("touchend", (e) => {
   startX = null;
 }, { passive: true });
 </script>
+<script>
+  document.getElementById('share-button').addEventListener('click', async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: document.title,
+          text: 'Check out this product!',
+          url: window.location.href,
+        });
+        console.log('Content shared successfully');
+      } catch (error) {
+        console.error('Error sharing:', error);
+      }
+    } else {
+      alert('Sharing is not supported on this browser/device.');
+    }
+  });
+</script>
 
   </main>
 
@@ -257,9 +290,11 @@ container.addEventListener("touchend", (e) => {
     <a href="https://www.instagram.com/blueforestprints" target="_blank" class="hover:text-white transition">
       <i class="fab fa-instagram mr-1"></i> Instagram
     </a>
-    <a href="https://wa.me/9899916151" target="_blank" class="hover:text-white transition">
-      <i class="fab fa-whatsapp mr-1"></i> WhatsApp
-    </a>
+<a href="https://wa.me/9899916151?text=Hi,%20I%20am%20interested%20in%20your%20products.%20Please%20let%20me%20know%20how%20to%20take%20this%20forward." 
+   target="_blank" 
+   class="hover:text-white transition">
+  <i class="fab fa-whatsapp mr-1"></i> WhatsApp
+</a>
   </div>
   <div>
     &copy; 2025 Blue Forest Prints. All rights reserved.

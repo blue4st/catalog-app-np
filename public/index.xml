@@ -8,46 +8,67 @@
     <language>en-us</language>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Bag1</title>
-      <link>http://localhost:1313/products/classic/bag1/</link>
+      <title>E01</title>
+      <link>http://localhost:1313/products/elite/e01/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/products/classic/bag1/</guid>
-      <description></description>
+      <guid>http://localhost:1313/products/elite/e01/</guid>
+      <description>&lt;br&gt;This is a refined handcrafted item suitable for any space.</description>
     </item>
     <item>
-      <title>Bag1</title>
-      <link>http://localhost:1313/products/elite/bag1/</link>
+      <title>E02</title>
+      <link>http://localhost:1313/products/elite/e02/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/products/elite/bag1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Bag1</title>
-      <link>http://localhost:1313/products/handmade/bag1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/products/handmade/bag1/</guid>
+      <guid>http://localhost:1313/products/elite/e02/</guid>
       <description>Description coming soon.</description>
     </item>
     <item>
-      <title>Wood Classic</title>
-      <link>http://localhost:1313/products/classic/wood-classic/</link>
+      <title>E03</title>
+      <link>http://localhost:1313/products/elite/e03/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/products/classic/wood-classic/</guid>
-      <description></description>
+      <guid>http://localhost:1313/products/elite/e03/</guid>
+      <description>Description coming soon.</description>
     </item>
     <item>
-      <title>Wood Classic</title>
-      <link>http://localhost:1313/products/elite/wood-classic/</link>
+      <title>E04</title>
+      <link>http://localhost:1313/products/elite/e04/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/products/elite/wood-classic/</guid>
-      <description></description>
+      <guid>http://localhost:1313/products/elite/e04/</guid>
+      <description>Description coming soon.</description>
     </item>
     <item>
-      <title>Wood Classic</title>
-      <link>http://localhost:1313/products/handmade/wood-classic/</link>
+      <title>E05</title>
+      <link>http://localhost:1313/products/elite/e05/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/products/handmade/wood-classic/</guid>
-      <description>&lt;br&gt;This is a refined handcrafted item suitable for any space.</description>
+      <guid>http://localhost:1313/products/elite/e05/</guid>
+      <description>Description coming soon.</description>
+    </item>
+    <item>
+      <title>E06</title>
+      <link>http://localhost:1313/products/elite/e06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/elite/e06/</guid>
+      <description>Description coming soon.</description>
+    </item>
+    <item>
+      <title>E07</title>
+      <link>http://localhost:1313/products/elite/e07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/elite/e07/</guid>
+      <description>Description coming soon.</description>
+    </item>
+    <item>
+      <title>E08</title>
+      <link>http://localhost:1313/products/elite/e08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/elite/e08/</guid>
+      <description>Description coming soon.</description>
+    </item>
+    <item>
+      <title>E09</title>
+      <link>http://localhost:1313/products/elite/e09/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/elite/e09/</guid>
+      <description>Description coming soon.</description>
     </item>
   </channel>
 </rss>

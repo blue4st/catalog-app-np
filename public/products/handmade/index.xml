@@ -15,6 +15,13 @@
       <description>Description coming soon.</description>
     </item>
     <item>
+      <title>E01</title>
+      <link>http://localhost:1313/products/handmade/e01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/handmade/e01/</guid>
+      <description>Description coming soon.</description>
+    </item>
+    <item>
       <title>Wood Classic</title>
       <link>http://localhost:1313/products/handmade/wood-classic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -5,7 +5,7 @@ secret.txt
 *.log
 
 # Ignore an entire folder
-assets\scanned-colors
+assets\colors
 
 # Ignore all .env files
 *.env
