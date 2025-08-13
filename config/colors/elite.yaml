@@ -43,4 +43,7 @@ colors:
     color: "#d2b48c"
   - name: Rust Orange
     image: rust-orange.jpg
-    color: "#f5f5f5"    
+    color: "#f5f5f5" 
+  - name: Deep Black
+    image: deep-black.jpg
+    color: "#f5f5f5"      

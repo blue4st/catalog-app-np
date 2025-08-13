@@ -188,10 +188,16 @@ def generate_for_product(product_folder, pricing_data):
     if generated_defs:
         default_color_img = random.choice(generated_defs)["image"]
 
-        # Get description
+        # Get descriptions
         descriptions = load_descriptions()
-        description_text = descriptions.get(product_name, "Description coming soon.")
+        category_desc = descriptions.get(category, "")
+        product_desc = descriptions.get(product_name, "")
 
+        if category_desc or product_desc:
+            # Use Markdown line break (two spaces before newline) so Hugo renders it correctly
+            description_text = "  \n".join([d for d in [category_desc, product_desc] if d]).strip()
+        else:
+            description_text = "Description coming soon"
         # Get pricing info from YAML
         category_prices = pricing_data.get(category, {})
         default_prices = category_prices.get("_default", {})

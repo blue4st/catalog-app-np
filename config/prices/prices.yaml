@@ -1,6 +1,6 @@
 elite:
   _default:
-    cost_price: 3000
+    cost_price: 2999
     discount: 0
-    selling_price: 3000
+    selling_price: 2999
     launch_date: "2025-08-01"
