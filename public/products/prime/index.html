@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Prime Series</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-900 text-white min-h-screen flex flex-col">
+
+  
+  <header class="py-3 text-center">
+    <a href="/">
+      <img src="/logo.png" alt="Logo" class="mx-auto h-14 object-contain">
+    </a>
+  </header>
+<header class="w-full border-b border-zinc-700 py-0 mb-6">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+    <nav class="space-x-6">
+      <a href="/products/" class="text-gray-100 hover:text-white">Products</a>
+      
+    </nav>
+  </div>
+</header>
+
+
+  
+  
+  
+    
+    
+      
+        
+      
+    
+      
+    
+    
+    
+
+    <div class="w-full max-w-6xl mx-auto px-4 mb-4 animate-fade-in">
+      <a href="/products/" class="inline-flex items-center text-sm text-blue-200 hover:text-blue-400 transition">
+        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Products
+      </a>
+    </div>
+  
+
+
+  
+  <main class="flex-1 flex items-center justify-center px-8">
+    
+<main class="relative bg-inherit text-white px-0 sm:px-4 py-0 overflow-visible">
+  <div class="relative z-10 max-w-7xl mx-auto flex flex-col min-h-0 sm:min-h-[80vh]">
+  
+    <h1 class="text-3xl font-bold text-center mb-4 tracking-wide">Prime Series</h1>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-screen sm:w-auto max-w-4xl mx-auto">
+	
+    </div>
+  </div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".group[data-images]").forEach(card => {
+    let productImages = [];
+    try {
+      productImages = JSON.parse(card.dataset.images);
+    } catch (e) {
+      console.error("Invalid data-images JSON for card:", e, card.dataset.images);
+    }
+
+    const defaultIndex = parseInt(card.dataset.defaultIndex || "0", 10) || 0;
+    const imgEl = card.querySelector(".product-image");
+    const fallbackDiv = card.querySelector(".product-fallback");
+    const linkEl = card.querySelector(".product-link");
+
+    const findValidIndex = (start) => {
+      if (!productImages || productImages.length === 0) return -1;
+      const n = productImages.length;
+      for (let i = 0; i < n; i++) {
+        const idx = (start + i) % n;
+        if (productImages[idx]) return idx;
+      }
+      return -1;
+    };
+
+    let index = findValidIndex(defaultIndex);
+    if (index === -1) index = findValidIndex(0);
+
+    const updateImage = () => {
+      const url = (productImages[index] && productImages[index].length) ? productImages[index] : null;
+      if (url && imgEl) {
+        imgEl.src = url;
+        if (fallbackDiv) fallbackDiv.style.display = 'none';
+      } else if (fallbackDiv) {
+        fallbackDiv.style.display = 'flex';
+      }
+    };
+
+    
+    const highlightSwatch = (i) => {
+      card.querySelectorAll(".swatch-thumbnail").forEach(s => s.classList.remove("swatch-selected"));
+      const target = card.querySelector(`.swatch-thumbnail[data-color-index="${i}"]`);
+      if (target) target.classList.add("swatch-selected");
+    };
+
+    
+    const prevBtn = card.querySelector("[data-prev]");
+    const nextBtn = card.querySelector("[data-next]");
+    const navigate = (delta) => {
+      if (!productImages || productImages.length === 0) return;
+      const n = productImages.length;
+      for (let attempt = 0; attempt < n; attempt++) {
+        index = (index + delta + n) % n;
+        if (productImages[index]) break;
+      }
+      updateImage();
+      highlightSwatch(index);
+    };
+
+    if (prevBtn) prevBtn.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); navigate(-1); });
+    if (nextBtn) nextBtn.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); navigate(1); });
+
+    
+    card.querySelectorAll(".swatch-thumbnail").forEach(swatch => {
+      swatch.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const i = parseInt(swatch.dataset.colorIndex || "0", 10);
+        if (productImages[i]) {
+          index = i;
+          updateImage();
+          highlightSwatch(index);
+        }
+      });
+    });
+
+    
+    let touchStartX = 0;
+    let touchMoved = false;
+    const swipeThreshold = 40;
+    card.addEventListener("touchstart", e => {
+      touchStartX = e.touches[0].clientX;
+      touchMoved = false;
+    }, { passive: true });
+    card.addEventListener("touchmove", e => {
+      const dx = Math.abs(e.touches[0].clientX - touchStartX);
+      if (dx > 10) touchMoved = true;
+    }, { passive: true });
+    card.addEventListener("touchend", e => {
+      const touchEndX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : 0;
+      const diff = touchEndX - touchStartX;
+      if (!touchMoved) return;
+      card.dataset.swiped = "1";
+      setTimeout(() => { delete card.dataset.swiped; }, 400);
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) navigate(-1);
+        else navigate(1);
+      }
+    }, { passive: true });
+
+    if (linkEl) {
+      linkEl.addEventListener("click", function (ev) {
+        if (card.dataset.swiped) {
+          ev.preventDefault();
+          ev.stopPropagation();
+        }
+      }, true);
+    }
+
+    
+    if (index >= 0) {
+      updateImage();
+      highlightSwatch(index);
+    }
+  });
+});
+</script>
+
+<style>
+.swatch-selected {
+  outline: 2px solid #ffff;
+  box-shadow: 0 0 0 1px #ffff;
+}
+</style>
+
+
+  </main>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<footer class="mt-12 text-center text-gray-400 text-sm border-t border-zinc-700 pt-6 space-y-2">
+  <div class="space-x-6">
+    <a href="https://www.instagram.com/blueforestprints" target="_blank" class="hover:text-white transition">
+      <i class="fab fa-instagram mr-1"></i> Instagram
+    </a>
+<a href="https://wa.me/9899916151?text=Hi,%20I%20am%20interested%20in%20your%20products.%20Please%20let%20me%20know%20how%20to%20take%20this%20forward." 
+   target="_blank" 
+   class="hover:text-white transition">
+  <i class="fab fa-whatsapp mr-1"></i> WhatsApp
+</a>
+  </div>
+  <div>
+    &copy; 2025 Blue Forest Prints. All rights reserved.
+  </div>
+  	<br>
+</footer>
+
+</body>
+</html>

@@ -12,12 +12,6 @@ colors:
   - name: Light Desert
     image: E07_light-desert.webp
     color: "#d2b48c"
-  - name: Pro Grey
-    image: E07_pro-grey.webp
-    color: "#f5f5f5"
-  - name: Bottle Green
-    image: E07_bottle-green.webp
-    color: "#d2b48c"
   - name: Mehndi Green
     image: E07_mehndi-green.webp
     color: "#f5f5f5"
@@ -36,18 +30,6 @@ colors:
   - name: Euro Green
     image: E07_euro-green.webp
     color: "#f5f5f5"
-  - name: Steel Pink
-    image: E07_steel-pink.webp
-    color: "#d2b48c"
-  - name: Pro Tan
-    image: E07_pro-tan.webp
-    color: "#f5f5f5"
-  - name: Royal Blue
-    image: E07_royal-blue.webp
-    color: "#1a1a1a"
-  - name: Ruby Maroon
-    image: E07_ruby-maroon.webp
-    color: "#d2b48c"
   - name: Rust Orange
     image: E07_rust-orange.webp
     color: "#f5f5f5"

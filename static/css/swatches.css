@@ -11,3 +11,11 @@
 .image-container img {
   width: 100%;
   max-width: 600
+  
+#parallax-container {
+  touch-action: pinch-zoom; /* Allow pinch zoom */
+}
+
+#product-wrapper {
+  overflow: visible; /* Let the browser zoom the image */
+}

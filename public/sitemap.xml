@@ -6,6 +6,8 @@
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
+    <loc>http://localhost:1313/products/classic/</loc>
+  </url><url>
     <loc>http://localhost:1313/products/elite/e01/</loc>
   </url><url>
     <loc>http://localhost:1313/products/elite/e02/</loc>
@@ -25,6 +27,8 @@
     <loc>http://localhost:1313/products/elite/e09/</loc>
   </url><url>
     <loc>http://localhost:1313/products/elite/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/</loc>
   </url><url>
     <loc>http://localhost:1313/products/</loc>
   </url><url>

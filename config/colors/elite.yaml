@@ -5,12 +5,6 @@ colors:
   - name: Light Desert
     image: light-desert.jpg
     color: "#d2b48c"
-  - name: Pro Grey
-    image: pro-grey.jpg
-    color: "#f5f5f5"
-  - name: Bottle Green
-    image: bottle-green.jpg
-    color: "#d2b48c"
   - name: Mehndi Green
     image: mehndi-green.jpg
     color: "#f5f5f5"    
@@ -29,21 +23,6 @@ colors:
   - name: Euro Green
     image: euro-green.jpg
     color: "#f5f5f5"
-  - name: Steel Pink
-    image: steel-pink.jpg
-    color: "#d2b48c"
-  - name: Pro Tan
-    image: pro-tan.jpg
-    color: "#f5f5f5"
-  - name: Royal Blue
-    image: royal-blue.jpg
-    color: "#1a1a1a"
-  - name: Ruby Maroon
-    image: ruby-maroon.jpg
-    color: "#d2b48c"
   - name: Rust Orange
     image: rust-orange.jpg
-    color: "#f5f5f5" 
-  - name: Deep Black
-    image: deep-black.jpg
     color: "#f5f5f5"      

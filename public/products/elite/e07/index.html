@@ -61,32 +61,35 @@
   <h1 class="text-3xl font-bold text-center mb-4 tracking-wide">E07</h1>
 
 <div id="parallax-container"
-     class="relative w-full -mx-4 sm:-mx-6 lg:mx-auto lg:max-w-2xl aspect-[1/1] mb-2 transition-transform duration-300 ease-out will-change-transform bg-inherit rounded-none lg:rounded-2xl overflow-hidden border-0 lg:border lg:border-zinc-800 touch-pan-y">
+     class="relative w-full -mx-4 sm:-mx-6 lg:mx-auto lg:max-w-2xl aspect-[1/1] mb-2 overflow-visible border-0 lg:border lg:border-zinc-800 bg-inherit rounded-none lg:rounded-2xl">
+  
   
   <img src="/images/stage.jpg" alt="Stage background"
-       class="w-full h-full object-cover" />	
+       class="absolute inset-0 w-full h-full object-cover" />	
 
   
-  
-  
-  
-  
-  
-  <img
-    id="product-a"
-    src="/products/elite/e07/E07_light-desert.webp"
-    alt="E07"
-    class="absolute inset-0 w-full h-full object-contain
-           opacity-100 transition-opacity duration-700 ease-in-out"
-  />
-  <img
-    id="product-b"
-    src=""
-    alt=""
-    class="absolute inset-0 w-full h-full object-contain
-           opacity-0 pointer-events-none transition-opacity duration-700 ease-in-out"
-  />
+  <div id="product-wrapper" class="absolute inset-0 w-full h-full transition-transform duration-300 ease-out will-change-transform">
+    
+    
+    
+    
+    
+    
+	<img
+      id="product-a"
+      src="/products/elite/e07/E07_light-desert.webp"
+      alt="E07"
+      class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-700 ease-in-out"
+    />
+    <img
+      id="product-b"
+      src=""
+      alt=""
+      class="absolute inset-0 w-full h-full object-contain opacity-0 pointer-events-none transition-opacity duration-700 ease-in-out"
+    />
+  </div>
 </div>
+
 
 
 
@@ -96,12 +99,17 @@
     ₹ 2999
   </span>
 
-  
-  <button id="share-button" class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700">
-    <i class="fas fa-share-alt"></i> Share
-  </button>
-</div>
 
+
+
+  
+
+<button id="share-button" 
+        data-color="/products/elite/e07/E07_light-desert.webp"
+        class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700">
+  <i class="fas fa-share-alt"></i> Share
+</button>
+</div>
   
   <div id="swatch-bar" class="flex flex-wrap gap-2 justify-center">
     
@@ -150,48 +158,12 @@
       <div class="flex flex-col items-center text-sm w-10 text-center">
         <img
           class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/pro-grey.jpg"
-          alt="Pro Grey"
-          title="Pro Grey"
-          data-index="2"
-          onclick="changeColor('\/products\/elite\/e07\/E07_pro-grey.webp',  2 )"
-          id="swatch-2"
-        />
-        <span class="mt-1 text-xs text-zinc-400">Pro Grey</span>
-      </div>
-    
-      
-      
-      
-      
-	  
-      <div class="flex flex-col items-center text-sm w-10 text-center">
-        <img
-          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/bottle-green.jpg"
-          alt="Bottle Green"
-          title="Bottle Green"
-          data-index="3"
-          onclick="changeColor('\/products\/elite\/e07\/E07_bottle-green.webp',  3 )"
-          id="swatch-3"
-        />
-        <span class="mt-1 text-xs text-zinc-400">Bottle Green</span>
-      </div>
-    
-      
-      
-      
-      
-	  
-      <div class="flex flex-col items-center text-sm w-10 text-center">
-        <img
-          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
           src="/assets/swatches/mehndi-green.jpg"
           alt="Mehndi Green"
           title="Mehndi Green"
-          data-index="4"
-          onclick="changeColor('\/products\/elite\/e07\/E07_mehndi-green.webp',  4 )"
-          id="swatch-4"
+          data-index="2"
+          onclick="changeColor('\/products\/elite\/e07\/E07_mehndi-green.webp',  2 )"
+          id="swatch-2"
         />
         <span class="mt-1 text-xs text-zinc-400">Mehndi Green</span>
       </div>
@@ -207,9 +179,9 @@
           src="/assets/swatches/butter-cream.jpg"
           alt="Butter Cream"
           title="Butter Cream"
-          data-index="5"
-          onclick="changeColor('\/products\/elite\/e07\/E07_butter-cream.webp',  5 )"
-          id="swatch-5"
+          data-index="3"
+          onclick="changeColor('\/products\/elite\/e07\/E07_butter-cream.webp',  3 )"
+          id="swatch-3"
         />
         <span class="mt-1 text-xs text-zinc-400">Butter Cream</span>
       </div>
@@ -225,9 +197,9 @@
           src="/assets/swatches/cloud-grey.jpg"
           alt="Cloud Grey"
           title="Cloud Grey"
-          data-index="6"
-          onclick="changeColor('\/products\/elite\/e07\/E07_cloud-grey.webp',  6 )"
-          id="swatch-6"
+          data-index="4"
+          onclick="changeColor('\/products\/elite\/e07\/E07_cloud-grey.webp',  4 )"
+          id="swatch-4"
         />
         <span class="mt-1 text-xs text-zinc-400">Cloud Grey</span>
       </div>
@@ -243,9 +215,9 @@
           src="/assets/swatches/golden-desert.jpg"
           alt="Golden Desert"
           title="Golden Desert"
-          data-index="7"
-          onclick="changeColor('\/products\/elite\/e07\/E07_golden-desert.webp',  7 )"
-          id="swatch-7"
+          data-index="5"
+          onclick="changeColor('\/products\/elite\/e07\/E07_golden-desert.webp',  5 )"
+          id="swatch-5"
         />
         <span class="mt-1 text-xs text-zinc-400">Golden Desert</span>
       </div>
@@ -261,9 +233,9 @@
           src="/assets/swatches/obsedian-brown.jpg"
           alt="Obsedian Brown"
           title="Obsedian Brown"
-          data-index="8"
-          onclick="changeColor('\/products\/elite\/e07\/E07_obsedian-brown.webp',  8 )"
-          id="swatch-8"
+          data-index="6"
+          onclick="changeColor('\/products\/elite\/e07\/E07_obsedian-brown.webp',  6 )"
+          id="swatch-6"
         />
         <span class="mt-1 text-xs text-zinc-400">Obsedian Brown</span>
       </div>
@@ -279,83 +251,11 @@
           src="/assets/swatches/euro-green.jpg"
           alt="Euro Green"
           title="Euro Green"
-          data-index="9"
-          onclick="changeColor('\/products\/elite\/e07\/E07_euro-green.webp',  9 )"
-          id="swatch-9"
+          data-index="7"
+          onclick="changeColor('\/products\/elite\/e07\/E07_euro-green.webp',  7 )"
+          id="swatch-7"
         />
         <span class="mt-1 text-xs text-zinc-400">Euro Green</span>
-      </div>
-    
-      
-      
-      
-      
-	  
-      <div class="flex flex-col items-center text-sm w-10 text-center">
-        <img
-          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/steel-pink.jpg"
-          alt="Steel Pink"
-          title="Steel Pink"
-          data-index="10"
-          onclick="changeColor('\/products\/elite\/e07\/E07_steel-pink.webp',  10 )"
-          id="swatch-10"
-        />
-        <span class="mt-1 text-xs text-zinc-400">Steel Pink</span>
-      </div>
-    
-      
-      
-      
-      
-	  
-      <div class="flex flex-col items-center text-sm w-10 text-center">
-        <img
-          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/pro-tan.jpg"
-          alt="Pro Tan"
-          title="Pro Tan"
-          data-index="11"
-          onclick="changeColor('\/products\/elite\/e07\/E07_pro-tan.webp',  11 )"
-          id="swatch-11"
-        />
-        <span class="mt-1 text-xs text-zinc-400">Pro Tan</span>
-      </div>
-    
-      
-      
-      
-      
-	  
-      <div class="flex flex-col items-center text-sm w-10 text-center">
-        <img
-          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/royal-blue.jpg"
-          alt="Royal Blue"
-          title="Royal Blue"
-          data-index="12"
-          onclick="changeColor('\/products\/elite\/e07\/E07_royal-blue.webp',  12 )"
-          id="swatch-12"
-        />
-        <span class="mt-1 text-xs text-zinc-400">Royal Blue</span>
-      </div>
-    
-      
-      
-      
-      
-	  
-      <div class="flex flex-col items-center text-sm w-10 text-center">
-        <img
-          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/ruby-maroon.jpg"
-          alt="Ruby Maroon"
-          title="Ruby Maroon"
-          data-index="13"
-          onclick="changeColor('\/products\/elite\/e07\/E07_ruby-maroon.webp',  13 )"
-          id="swatch-13"
-        />
-        <span class="mt-1 text-xs text-zinc-400">Ruby Maroon</span>
       </div>
     
       
@@ -369,9 +269,9 @@
           src="/assets/swatches/rust-orange.jpg"
           alt="Rust Orange"
           title="Rust Orange"
-          data-index="14"
-          onclick="changeColor('\/products\/elite\/e07\/E07_rust-orange.webp',  14 )"
-          id="swatch-14"
+          data-index="8"
+          onclick="changeColor('\/products\/elite\/e07\/E07_rust-orange.webp',  8 )"
+          id="swatch-8"
         />
         <span class="mt-1 text-xs text-zinc-400">Rust Orange</span>
       </div>
@@ -396,65 +296,69 @@ Elite Series Combo – 3 Piece Perfection<br><br> <span class='text-b font-mediu
 let isAVisible = true;
 let swatches = [
   
-    
-    
-    "\/products\/elite\/e07\/E07_rose-pink.webp",
   
     
     
-    "\/products\/elite\/e07\/E07_light-desert.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_rose-pink.webp",
+      name: "rose-pink"
+    },
   
     
     
-    "\/products\/elite\/e07\/E07_pro-grey.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_light-desert.webp",
+      name: "light-desert"
+    },
   
     
     
-    "\/products\/elite\/e07\/E07_bottle-green.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_mehndi-green.webp",
+      name: "mehndi-green"
+    },
   
     
     
-    "\/products\/elite\/e07\/E07_mehndi-green.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_butter-cream.webp",
+      name: "butter-cream"
+    },
   
     
     
-    "\/products\/elite\/e07\/E07_butter-cream.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_cloud-grey.webp",
+      name: "cloud-grey"
+    },
   
     
     
-    "\/products\/elite\/e07\/E07_cloud-grey.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_golden-desert.webp",
+      name: "golden-desert"
+    },
   
     
     
-    "\/products\/elite\/e07\/E07_golden-desert.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_obsedian-brown.webp",
+      name: "obsedian-brown"
+    },
   
     
     
-    "\/products\/elite\/e07\/E07_obsedian-brown.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_euro-green.webp",
+      name: "euro-green"
+    },
   
     
     
-    "\/products\/elite\/e07\/E07_euro-green.webp",
-  
-    
-    
-    "\/products\/elite\/e07\/E07_steel-pink.webp",
-  
-    
-    
-    "\/products\/elite\/e07\/E07_pro-tan.webp",
-  
-    
-    
-    "\/products\/elite\/e07\/E07_royal-blue.webp",
-  
-    
-    
-    "\/products\/elite\/e07\/E07_ruby-maroon.webp",
-  
-    
-    
-    "\/products\/elite\/e07\/E07_rust-orange.webp",
+    {
+      src: "\/products\/elite\/e07\/E07_rust-orange.webp",
+      name: "rust-orange"
+    }
   
 ];
 
@@ -478,6 +382,10 @@ function changeColor(newSrc, newIndex) {
 
     highlightSwatch(newIndex);
     currentIndex = newIndex;
+
+    
+    const shareButton = document.getElementById("share-button");
+    if (shareButton) shareButton.setAttribute("data-color", newSrc);
   };
   temp.src = newSrc;
 }
@@ -499,43 +407,54 @@ highlightSwatch(currentIndex);
 
 
 const container = document.getElementById("parallax-container");
+const productWrapper = document.getElementById("product-wrapper"); 
+
 container.addEventListener("mousemove", (e) => {
   const rect = container.getBoundingClientRect();
   const x = e.clientX - rect.left - rect.width / 2;
   const y = e.clientY - rect.top - rect.height / 2;
   const rotateX = (-y / rect.height) * 10;
   const rotateY = (x / rect.width) * 10;
-  container.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+
+  
+  productWrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
 });
+
 container.addEventListener("mouseleave", () => {
-  container.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+  productWrapper.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
 });
 
 
-let startX = null;
-container.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-}, { passive: true });
 
-container.addEventListener("touchend", (e) => {
-  if (startX === null) return;
-  const endX = e.changedTouches[0].clientX;
-  const diff = endX - startX;
-  if (Math.abs(diff) > 30) {
-    let newIndex = currentIndex;
-    if (diff < 0) newIndex = (currentIndex + 1) % swatches.length;
-    else newIndex = (currentIndex - 1 + swatches.length) % swatches.length;
-    changeColor(swatches[newIndex], newIndex);
-  }
-  startX = null;
-}, { passive: true });
-</script>
-<script>
+
+
+  
+
+
+
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+  
+  
+
+
+
 document.getElementById("share-button").addEventListener("click", async () => {
+  const activeSwatch = document.querySelector(".border-white");
+  let colorName = activeSwatch ? activeSwatch.alt.toLowerCase().replace(/\s+/g, "-") : "";
+
   const shareData = {
     title: document.title,
     text: "Check out this amazing product!",
-    url: window.location.href
+    url: `${window.location.origin}${window.location.pathname}?color=${encodeURIComponent(colorName)}`
   };
 
   try {
@@ -547,6 +466,18 @@ document.getElementById("share-button").addEventListener("click", async () => {
     }
   } catch (err) {
     console.error("Error sharing:", err);
+  }
+});
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const colorParam = urlParams.get("color"); 
+  if (colorParam) {
+    const index = swatches.findIndex(el => el.name === colorParam.toLowerCase());
+    if (index >= 0 && index !== currentIndex) {
+      changeColor(swatches[index].src, index);
+    }
   }
 });
 </script>

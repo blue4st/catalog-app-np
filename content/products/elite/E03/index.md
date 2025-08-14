@@ -12,12 +12,6 @@ colors:
   - name: Light Desert
     image: E03_light-desert.webp
     color: "#d2b48c"
-  - name: Pro Grey
-    image: E03_pro-grey.webp
-    color: "#f5f5f5"
-  - name: Bottle Green
-    image: E03_bottle-green.webp
-    color: "#d2b48c"
   - name: Mehndi Green
     image: E03_mehndi-green.webp
     color: "#f5f5f5"
@@ -36,22 +30,10 @@ colors:
   - name: Euro Green
     image: E03_euro-green.webp
     color: "#f5f5f5"
-  - name: Steel Pink
-    image: E03_steel-pink.webp
-    color: "#d2b48c"
-  - name: Pro Tan
-    image: E03_pro-tan.webp
-    color: "#f5f5f5"
-  - name: Royal Blue
-    image: E03_royal-blue.webp
-    color: "#1a1a1a"
-  - name: Ruby Maroon
-    image: E03_ruby-maroon.webp
-    color: "#d2b48c"
   - name: Rust Orange
     image: E03_rust-orange.webp
     color: "#f5f5f5"
-default_color: E03_butter-cream.webp
+default_color: E03_light-desert.webp
 ---
 
 Elite Series Combo – 3 Piece Perfection<br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Premium Album Box<br> 3. Matching Designer Bag<br><br> </span> <div class='max-w-xl mx-auto'> Personalized to make every delivery special. The album cover and box feature UV-printed couple names, while the matching bag carries your company logo, adding a touch of class and brand presence. </div>
