@@ -12,29 +12,22 @@ jobs:
     steps:
       - name: Checkout catalog-app
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # full history needed for push
+          persist-credentials: true  # uses GITHUB_TOKEN automatically
 
       - name: Configure Git
         run: |
           git config --global user.name "blue4st"
           git config --global user.email "upload.blueforest@gmail.com"
 
-      - name: Debug & Push to catalog-app-np
-        env:
-          SYNC_REPO_TOKEN: ${{ secrets.SYNC_REPO_TOKEN }}
+      - name: Add remote and push
         run: |
-          # Enable command tracing
-          set -x
-
+          set -x  # enable command tracing
           echo "🔗 Adding remote for catalog-app-np"
-
-          # Remove remote if it exists (avoids duplicate remote errors)
           git remote remove catalog-app-np || true
-
-          # Add the remote using the PAT
-          git remote add catalog-app-np https://x-access-token:${SYNC_REPO_TOKEN}@github.com/blue4st/catalog-app-np.git
-
-          echo "📥 Fetching remote"
+          git remote add catalog-app-np https://github.com/blue4st/catalog-app-np.git
+          echo "📥 Fetching catalog-app-np"
           git fetch catalog-app-np
-
           echo "📤 Pushing changes to catalog-app-np main branch"
           git push catalog-app-np main --force
