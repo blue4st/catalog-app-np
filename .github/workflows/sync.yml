@@ -29,7 +29,16 @@ jobs:
         run: |
           echo "🧹 Removing pricing fields from index.md files..."
           find content/products -name "index.md" -type f -exec sed -i '/^\s*\(cost_price\|discount\|selling_price\|launch_date\):/d' {} +
+          git add content/products
+          git commit -m "Remove pricing fields for catalog-app-np" || echo "No changes to commit"
           echo "✅ Pricing fields removed"
+
+      - name: Push cleaned changes to target repository
+        run: |
+          git remote remove catalog-app-np || true
+          git remote add catalog-app-np git@github.com:blue4st/catalog-app-np.git
+          git push catalog-app-np main --force
+          echo "✅ Cleaned push complete"
 
       - name: Add SSH remote for target repository
         run: |
