@@ -37,9 +37,12 @@
 <!-- Price + Share button row -->
 <div class="w-full max-w-xl flex justify-between items-center mb-4">
   <!-- Price -->
+  {{ with .Params.selling_price }}
   <span class="text-lg font-semibold text-xl text-lime-300 mb-1">
-    ₹ {{ .Params.selling_price }}
+    ₹ {{ . }}
   </span>
+  {{ end }}
+</div>
 
 <!-- Share button -->
 {{ $shareColor := "/images/missing.jpg" }}
