@@ -1,7 +1,6 @@
 ---
 title: "E01"
 markup: "html"
-launch_date: 2025-08-01
 colors:
   - name: Rose Pink
     image: E01_rose-pink.webp

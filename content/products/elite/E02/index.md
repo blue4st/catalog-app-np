@@ -1,10 +1,6 @@
 ---
 title: "E02"
 markup: "html"
-cost_price: 2999
-discount: 0
-selling_price: 2999
-launch_date: 2025-08-01
 colors:
   - name: Rose Pink
     image: E02_rose-pink.webp
