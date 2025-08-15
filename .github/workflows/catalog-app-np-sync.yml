@@ -1,0 +1,26 @@
+name: Sync catalog-app-np
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout catalog-app
+        uses: actions/checkout@v3
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "blue4st"
+          git config --global user.email "upload.blueforest@gmail.com"
+
+      - name: Push to catalog-app-np
+        env:
+          SYNC_REPO_TOKEN: ${{ secrets.SYNC_REPO_TOKEN }}
+        run: |
+          git remote add catalog-app-np https://x-access-token:${SYNC_REPO_TOKEN}@github.com/blue4st/catalog-app-np.git
+          git push repo-b main --force
