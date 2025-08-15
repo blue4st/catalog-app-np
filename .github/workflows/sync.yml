@@ -1,9 +1,9 @@
-name: Sync catalog-app-np
+name: Sync catalog-app-np via SSH
 
 on:
   push:
     branches:
-      - main
+      - main  # change if your main branch has a different name
 
 jobs:
   sync:
@@ -12,24 +12,23 @@ jobs:
     steps:
       - name: Checkout Repo A
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # fetch all history for mirror push
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SYNC_REPO_SSH_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Configure Git
+      - name: Add SSH remote for Repo B
         run: |
-          git config --global user.name "blue4st"
-          git config --global user.email "upload.blueforest@gmail.com"
-
-      - name: Add Repo B as remote
-        run: |
+          git remote remove catalog-app-np || true
           git remote add catalog-app-np git@github.com:blue4st/catalog-app-np.git
+          echo "✅ Remote added via SSH"
 
-      - name: Push changes to Repo B
+      - name: Mirror push to Repo B
         run: |
-          git fetch catalog-app-np
-          git push catalog-app-np main --force
+          echo "🔄 Starting mirror push to catalog-app-np"
+          git fetch catalog-app-np || true
+          git push --mirror catalog-app-np
+          echo "✅ Mirror push complete"
