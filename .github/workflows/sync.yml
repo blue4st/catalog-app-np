@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout current repository
-        uses: actions/checkout@v4  # Updated to latest version
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # fetch all history for mirror push
 
       - name: Setup SSH key
-        uses: webfactory/ssh-agent@v0.9.0  # Updated to latest stable version
+        uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SYNC_REPO_SSH_KEY }}
 
@@ -24,6 +24,12 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+
+      - name: Remove pricing from index.md files
+        run: |
+          echo "🧹 Removing pricing fields from index.md files..."
+          find content/products -name "index.md" -type f -exec sed -i '/^\s*\(cost_price\|discount\|selling_price\|launch_date\):/d' {} +
+          echo "✅ Pricing fields removed"
 
       - name: Add SSH remote for target repository
         run: |
