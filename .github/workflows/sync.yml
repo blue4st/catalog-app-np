@@ -1,0 +1,35 @@
+name: Sync catalog-app-np
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo A
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SYNC_REPO_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "blue4st"
+          git config --global user.email "upload.blueforest@gmail.com"
+
+      - name: Add Repo B as remote
+        run: |
+          git remote add catalog-app-np git@github.com:blue4st/catalog-app-np.git
+
+      - name: Push changes to Repo B
+        run: |
+          git fetch catalog-app-np
+          git push catalog-app-np main --force
