@@ -3,7 +3,6 @@ secret.txt
 
 # Ignore all .log files
 *.log
-
 # Ignore an entire folder
 assets\colors
 
