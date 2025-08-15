@@ -18,8 +18,9 @@ jobs:
           git config --global user.name "blue4st"
           git config --global user.email "upload.blueforest@gmail.com"
 
-      - name: Push to catalog-app-np
-        run: |
-          git remote add catalog-app-np https://x-access-token:${{ secrets.SYNC_REPO_TOKEN }}@github.com/blue4st/catalog-app-np.git
-          git fetch catalog-app-np
-          git push catalog-app-np main --force
+- name: Push to catalog-app-np
+  run: |
+    git remote add catalog-app-np https://x-access-token:${{ secrets.SYNC_REPO_TOKEN }}@github.com/blue4st/catalog-app-np.git
+    git fetch catalog-app-np
+    git push catalog-app-np main --force
+
