@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0  # fetch all history for mirror push
 
       - name: Setup SSH key
-        uses: webfactory/ssh-agent@v0.8.1
+        uses: webfactory/ssh-agent@v0.8.2
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
