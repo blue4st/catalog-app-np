@@ -61,7 +61,7 @@
   <h1 class="text-3xl font-bold text-center mb-4 tracking-wide">E08</h1>
 
 <div id="parallax-container"
-     class="relative w-full -mx-4 sm:-mx-6 lg:mx-auto lg:max-w-2xl aspect-[1/1] mb-2 overflow-hidden border-0 lg:border lg:border-zinc-800 touch-pan-y bg-inherit rounded-none lg:rounded-2xl">
+     class="relative w-full -mx-4 sm:-mx-6 lg:mx-auto lg:max-w-2xl aspect-[1/1] mb-2 overflow-visible border-0 lg:border lg:border-zinc-800 bg-inherit rounded-none lg:rounded-2xl">
   
   
   <img src="/images/stage.jpg" alt="Stage background"
@@ -77,7 +77,7 @@
     
 	<img
       id="product-a"
-      src="/products/elite/e08/E08_butter-cream.webp"
+      src="/products/elite/e08/E08_light-desert.webp"
       alt="E08"
       class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-700 ease-in-out"
     />
@@ -105,7 +105,7 @@
   
 
 <button id="share-button" 
-        data-color="/products/elite/e08/E08_butter-cream.webp"
+        data-color="/products/elite/e08/E08_light-desert.webp"
         class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700">
   <i class="fas fa-share-alt"></i> Share
 </button>
@@ -362,7 +362,7 @@ let swatches = [
   
 ];
 
-let currentIndex = swatches.findIndex(src => src === "\/products\/elite\/e08\/E08_butter-cream.webp");
+let currentIndex = swatches.findIndex(src => src === "\/products\/elite\/e08\/E08_light-desert.webp");
 
 function changeColor(newSrc, newIndex) {
   if (currentIndex === newIndex) return;
