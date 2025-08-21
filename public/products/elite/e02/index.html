@@ -16,10 +16,11 @@
     </a>
   </header>
 <header class="w-full border-b border-zinc-700 py-0 mb-6">
-  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <nav class="space-x-6">
       <a href="/products/" class="text-gray-100 hover:text-white">Products</a>
-      
+      <a href="/story/" class="text-gray-300 hover:text-white">Our Story</a>
+      <a href="/contact/" class="text-gray-300 hover:text-white">Contact</a>
     </nav>
   </div>
 </header>
@@ -77,7 +78,7 @@
     
 	<img
       id="product-a"
-      src="/products/elite/e02/E02_light-desert.webp"
+      src="/products/elite/e02/E02_golden-desert.webp"
       alt="E02"
       class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-700 ease-in-out"
     />
@@ -93,27 +94,36 @@
 
 
 
-<div class="w-full max-w-xl flex justify-between items-center mb-4">
+<div class="w-full max-w-xl flex justify-between items-center mb-4 py-2">
   
   
-  <span class="text-lg font-semibold text-xl text-lime-300 mb-1">
+  
+  <span class="text-lg font-semibold text-xl text-lime-300">
     ₹ 2999
   </span>
   
 
-
-
-
   
-
-<button id="share-button" 
-        data-color="/products/elite/e02/E02_light-desert.webp"
-        class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700">
-  <i class="fas fa-share-alt"></i> Share
+  
+  
+    
+  
+<button id="order-button" 
+        data-color="/products/elite/e02/E02_golden-desert.webp"
+        class="bg-lime-400 text-black hover:bg-lime-500 transition flex items-center gap-2 text-sm px-6 py-2 rounded font-semibold mx-5 justify-center">
+  <i class="fab fa-whatsapp"></i> Order Now
 </button>
-</div>
+
   
-  <div id="swatch-bar" class="flex flex-wrap gap-2 justify-center">
+  <button id="share-button" 
+          data-color="/products/elite/e02/E02_golden-desert.webp"
+          class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700 ">
+    <i class="fas fa-share-alt"></i> Share
+  </button>
+</div>
+
+  
+  <div id="swatch-bar" class="flex flex-wrap gap-2 justify-center max-w-xl">
     
     
       
@@ -124,50 +134,14 @@
       <div class="flex flex-col items-center text-sm w-10 text-center">
         <img
           class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/rose-pink.jpg"
-          alt="Rose Pink"
-          title="Rose Pink"
+          src="/assets/swatches/velvet-green.jpg"
+          alt="Velvet Green"
+          title="Velvet Green"
           data-index="0"
-          onclick="changeColor('\/products\/elite\/e02\/E02_rose-pink.webp',  0 )"
+          onclick="changeColor('\/products\/elite\/e02\/E02_velvet-green.webp',  0 )"
           id="swatch-0"
         />
-        <span class="mt-1 text-xs text-zinc-400">Rose Pink</span>
-      </div>
-    
-      
-      
-      
-      
-	  
-      <div class="flex flex-col items-center text-sm w-10 text-center">
-        <img
-          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/light-desert.jpg"
-          alt="Light Desert"
-          title="Light Desert"
-          data-index="1"
-          onclick="changeColor('\/products\/elite\/e02\/E02_light-desert.webp',  1 )"
-          id="swatch-1"
-        />
-        <span class="mt-1 text-xs text-zinc-400">Light Desert</span>
-      </div>
-    
-      
-      
-      
-      
-	  
-      <div class="flex flex-col items-center text-sm w-10 text-center">
-        <img
-          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/mehndi-green.jpg"
-          alt="Mehndi Green"
-          title="Mehndi Green"
-          data-index="2"
-          onclick="changeColor('\/products\/elite\/e02\/E02_mehndi-green.webp',  2 )"
-          id="swatch-2"
-        />
-        <span class="mt-1 text-xs text-zinc-400">Mehndi Green</span>
+        <span class="mt-1 text-xs text-zinc-400">Velvet Green</span>
       </div>
     
       
@@ -181,9 +155,9 @@
           src="/assets/swatches/butter-cream.jpg"
           alt="Butter Cream"
           title="Butter Cream"
-          data-index="3"
-          onclick="changeColor('\/products\/elite\/e02\/E02_butter-cream.webp',  3 )"
-          id="swatch-3"
+          data-index="1"
+          onclick="changeColor('\/products\/elite\/e02\/E02_butter-cream.webp',  1 )"
+          id="swatch-1"
         />
         <span class="mt-1 text-xs text-zinc-400">Butter Cream</span>
       </div>
@@ -199,9 +173,9 @@
           src="/assets/swatches/cloud-grey.jpg"
           alt="Cloud Grey"
           title="Cloud Grey"
-          data-index="4"
-          onclick="changeColor('\/products\/elite\/e02\/E02_cloud-grey.webp',  4 )"
-          id="swatch-4"
+          data-index="2"
+          onclick="changeColor('\/products\/elite\/e02\/E02_cloud-grey.webp',  2 )"
+          id="swatch-2"
         />
         <span class="mt-1 text-xs text-zinc-400">Cloud Grey</span>
       </div>
@@ -214,14 +188,14 @@
       <div class="flex flex-col items-center text-sm w-10 text-center">
         <img
           class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/golden-desert.jpg"
-          alt="Golden Desert"
-          title="Golden Desert"
-          data-index="5"
-          onclick="changeColor('\/products\/elite\/e02\/E02_golden-desert.webp',  5 )"
-          id="swatch-5"
+          src="/assets/swatches/dark-brown.jpg"
+          alt="Dark Brown"
+          title="Dark Brown"
+          data-index="3"
+          onclick="changeColor('\/products\/elite\/e02\/E02_dark-brown.webp',  3 )"
+          id="swatch-3"
         />
-        <span class="mt-1 text-xs text-zinc-400">Golden Desert</span>
+        <span class="mt-1 text-xs text-zinc-400">Dark Brown</span>
       </div>
     
       
@@ -232,14 +206,50 @@
       <div class="flex flex-col items-center text-sm w-10 text-center">
         <img
           class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/obsedian-brown.jpg"
-          alt="Obsedian Brown"
-          title="Obsedian Brown"
+          src="/assets/swatches/dark-knight.jpg"
+          alt="Dark Knight"
+          title="Dark Knight"
+          data-index="4"
+          onclick="changeColor('\/products\/elite\/e02\/E02_dark-knight.webp',  4 )"
+          id="swatch-4"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Dark Knight</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/deep-blue.jpg"
+          alt="Deep Blue"
+          title="Deep Blue"
+          data-index="5"
+          onclick="changeColor('\/products\/elite\/e02\/E02_deep-blue.webp',  5 )"
+          id="swatch-5"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Deep Blue</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/dove-brown.jpg"
+          alt="Dove Brown"
+          title="Dove Brown"
           data-index="6"
-          onclick="changeColor('\/products\/elite\/e02\/E02_obsedian-brown.webp',  6 )"
+          onclick="changeColor('\/products\/elite\/e02\/E02_dove-brown.webp',  6 )"
           id="swatch-6"
         />
-        <span class="mt-1 text-xs text-zinc-400">Obsedian Brown</span>
+        <span class="mt-1 text-xs text-zinc-400">Dove Brown</span>
       </div>
     
       
@@ -268,14 +278,230 @@
       <div class="flex flex-col items-center text-sm w-10 text-center">
         <img
           class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
-          src="/assets/swatches/rust-orange.jpg"
-          alt="Rust Orange"
-          title="Rust Orange"
+          src="/assets/swatches/forest-green.jpg"
+          alt="Forest Green"
+          title="Forest Green"
           data-index="8"
-          onclick="changeColor('\/products\/elite\/e02\/E02_rust-orange.webp',  8 )"
+          onclick="changeColor('\/products\/elite\/e02\/E02_forest-green.webp',  8 )"
           id="swatch-8"
         />
-        <span class="mt-1 text-xs text-zinc-400">Rust Orange</span>
+        <span class="mt-1 text-xs text-zinc-400">Forest Green</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/golden-desert.jpg"
+          alt="Golden Desert"
+          title="Golden Desert"
+          data-index="9"
+          onclick="changeColor('\/products\/elite\/e02\/E02_golden-desert.webp',  9 )"
+          id="swatch-9"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Golden Desert</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/light-desert.jpg"
+          alt="Light Desert"
+          title="Light Desert"
+          data-index="10"
+          onclick="changeColor('\/products\/elite\/e02\/E02_light-desert.webp',  10 )"
+          id="swatch-10"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Light Desert</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/mehndi-green.jpg"
+          alt="Mehndi Green"
+          title="Mehndi Green"
+          data-index="11"
+          onclick="changeColor('\/products\/elite\/e02\/E02_mehndi-green.webp',  11 )"
+          id="swatch-11"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Mehndi Green</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/navy-blue.jpg"
+          alt="Navy Blue"
+          title="Navy Blue"
+          data-index="12"
+          onclick="changeColor('\/products\/elite\/e02\/E02_navy-blue.webp',  12 )"
+          id="swatch-12"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Navy Blue</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/rose-pink.jpg"
+          alt="Rose Pink"
+          title="Rose Pink"
+          data-index="13"
+          onclick="changeColor('\/products\/elite\/e02\/E02_rose-pink.webp',  13 )"
+          id="swatch-13"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Rose Pink</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/velvet-blue.jpg"
+          alt="Velvet Blue"
+          title="Velvet Blue"
+          data-index="14"
+          onclick="changeColor('\/products\/elite\/e02\/E02_velvet-blue.webp',  14 )"
+          id="swatch-14"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Velvet Blue</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/royal-red.jpg"
+          alt="Royal Red"
+          title="Royal Red"
+          data-index="15"
+          onclick="changeColor('\/products\/elite\/e02\/E02_royal-red.webp',  15 )"
+          id="swatch-15"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Royal Red</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/ruby-red.jpg"
+          alt="Ruby Red"
+          title="Ruby Red"
+          data-index="16"
+          onclick="changeColor('\/products\/elite\/e02\/E02_ruby-red.webp',  16 )"
+          id="swatch-16"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Ruby Red</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/earth-clay.jpg"
+          alt="Earth Clay"
+          title="Earth Clay"
+          data-index="17"
+          onclick="changeColor('\/products\/elite\/e02\/E02_earth-clay.webp',  17 )"
+          id="swatch-17"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Earth Clay</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/salmon-red.jpg"
+          alt="Salmon Red"
+          title="Salmon Red"
+          data-index="18"
+          onclick="changeColor('\/products\/elite\/e02\/E02_salmon-red.webp',  18 )"
+          id="swatch-18"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Salmon Red</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/steel-grey.jpg"
+          alt="Steel Grey"
+          title="Steel Grey"
+          data-index="19"
+          onclick="changeColor('\/products\/elite\/e02\/E02_steel-grey.webp',  19 )"
+          id="swatch-19"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Steel Grey</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/sunset-cream.jpg"
+          alt="Sunset Cream"
+          title="Sunset Cream"
+          data-index="20"
+          onclick="changeColor('\/products\/elite\/e02\/E02_sunset-cream.webp',  20 )"
+          id="swatch-20"
+        />
+        <span class="mt-1 text-xs text-zinc-400">Sunset Cream</span>
       </div>
     
   </div>
@@ -286,7 +512,7 @@
   <div class="product-description">
     <br>
     
-Elite Series Combo – 3 Piece Perfection<br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Premium Album Box<br> 3. Matching Designer Bag<br><br> </span> <div class='max-w-xl mx-auto'> Personalized to make every delivery special. The album cover and box feature UV-printed couple names, while the matching bag carries your company logo, adding a touch of class and brand presence. </div>
+Elite Series – 3 Piece Combo<br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Premium Album Box<br> 3. Matching Designer Bag<br><br> </span> <div class='max-w-xl mx-auto'> Personalized to make every delivery special. The album cover and box feature UV-printed couple names, while the matching bag carries your company logo, adding a touch of class and brand presence. </div> <div class='max-w-xl mx-auto text-b font-medium text-lime-300 mb-1'> <br>UV printing details<br> </div> <span class='text-r mb-1'> 1. Couple name on cover<br> 2. Couple name on box<br> 3. Couple name on bag<br> 4. Your logo on bag<br> </span>
 
   </div>
 
@@ -296,34 +522,24 @@ Elite Series Combo – 3 Piece Perfection<br><br> <span class='text-b font-mediu
 
 <script>
 let isAVisible = true;
+
+
 let swatches = [
   
   
     
     
     {
-      src: "\/products\/elite\/e02\/E02_rose-pink.webp",
-      name: "rose-pink"
-    },
-  
-    
-    
-    {
-      src: "\/products\/elite\/e02\/E02_light-desert.webp",
-      name: "light-desert"
-    },
-  
-    
-    
-    {
-      src: "\/products\/elite\/e02\/E02_mehndi-green.webp",
-      name: "mehndi-green"
+      src: "\/products\/elite\/e02\/E02_velvet-green.webp",
+      
+      name: "velvet-green"
     },
   
     
     
     {
       src: "\/products\/elite\/e02\/E02_butter-cream.webp",
+      
       name: "butter-cream"
     },
   
@@ -331,46 +547,177 @@ let swatches = [
     
     {
       src: "\/products\/elite\/e02\/E02_cloud-grey.webp",
+      
       name: "cloud-grey"
     },
   
     
     
     {
-      src: "\/products\/elite\/e02\/E02_golden-desert.webp",
-      name: "golden-desert"
+      src: "\/products\/elite\/e02\/E02_dark-brown.webp",
+      
+      name: "dark-brown"
     },
   
     
     
     {
-      src: "\/products\/elite\/e02\/E02_obsedian-brown.webp",
-      name: "obsedian-brown"
+      src: "\/products\/elite\/e02\/E02_dark-knight.webp",
+      
+      name: "dark-knight"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_deep-blue.webp",
+      
+      name: "deep-blue"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_dove-brown.webp",
+      
+      name: "dove-brown"
     },
   
     
     
     {
       src: "\/products\/elite\/e02\/E02_euro-green.webp",
+      
       name: "euro-green"
     },
   
     
     
     {
-      src: "\/products\/elite\/e02\/E02_rust-orange.webp",
-      name: "rust-orange"
+      src: "\/products\/elite\/e02\/E02_forest-green.webp",
+      
+      name: "forest-green"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_golden-desert.webp",
+      
+      name: "golden-desert"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_light-desert.webp",
+      
+      name: "light-desert"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_mehndi-green.webp",
+      
+      name: "mehndi-green"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_navy-blue.webp",
+      
+      name: "navy-blue"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_rose-pink.webp",
+      
+      name: "rose-pink"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_velvet-blue.webp",
+      
+      name: "velvet-blue"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_royal-red.webp",
+      
+      name: "royal-red"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_ruby-red.webp",
+      
+      name: "ruby-red"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_earth-clay.webp",
+      
+      name: "earth-clay"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_salmon-red.webp",
+      
+      name: "salmon-red"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_steel-grey.webp",
+      
+      name: "steel-grey"
+    },
+  
+    
+    
+    {
+      src: "\/products\/elite\/e02\/E02_sunset-cream.webp",
+      
+      name: "sunset-cream"
     }
   
 ];
 
-let currentIndex = swatches.findIndex(src => src === "\/products\/elite\/e02\/E02_light-desert.webp");
+
+let currentIndex = swatches.findIndex(el => el.src === "\/products\/elite\/e02\/E02_golden-desert.webp");
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const colorParam = urlParams.get("color");
+if (colorParam && currentIndex === -1) {
+  const byParam = swatches.findIndex(el => el.name === colorParam.toLowerCase());
+  if (byParam >= 0) currentIndex = byParam;
+}
+
+
+if (currentIndex === -1) currentIndex = swatches.findIndex(el => !!el.src) 
+if (currentIndex === -1) currentIndex = 0; 
 
 function changeColor(newSrc, newIndex) {
-  if (currentIndex === newIndex) return;
-
   const imgA = document.getElementById("product-a");
   const imgB = document.getElementById("product-b");
+
+  if (!imgA || !imgB) return;
+  if (currentIndex === newIndex) return;
 
   const incoming = isAVisible ? imgB : imgA;
   const outgoing = isAVisible ? imgA : imgB;
@@ -393,8 +740,7 @@ function changeColor(newSrc, newIndex) {
 }
 
 function highlightSwatch(index) {
-  const all = document.querySelectorAll('[id^="swatch-"]');
-  all.forEach(el => {
+  document.querySelectorAll('[id^="swatch-"]').forEach(el => {
     el.classList.remove("border-white");
     el.classList.add("border-zinc-700");
   });
@@ -405,84 +751,85 @@ function highlightSwatch(index) {
   }
 }
 
+
 highlightSwatch(currentIndex);
 
 
 const container = document.getElementById("parallax-container");
-const productWrapper = document.getElementById("product-wrapper"); 
-
-container.addEventListener("mousemove", (e) => {
-  const rect = container.getBoundingClientRect();
-  const x = e.clientX - rect.left - rect.width / 2;
-  const y = e.clientY - rect.top - rect.height / 2;
-  const rotateX = (-y / rect.height) * 10;
-  const rotateY = (x / rect.width) * 10;
-
-  
-  productWrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-});
-
-container.addEventListener("mouseleave", () => {
-  productWrapper.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
-});
+const productWrapper = document.getElementById("product-wrapper");
+if (container && productWrapper) {
+  container.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const rotateX = (-y / rect.height) * 10;
+    const rotateY = (x / rect.width) * 10;
+    productWrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+  });
+  container.addEventListener("mouseleave", () => {
+    productWrapper.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+  });
+}
 
 
-
-
-
-  
-
-
-
-  
-  
-  
-  
+const shareBtn = document.getElementById("share-button");
+if (shareBtn) {
+  shareBtn.addEventListener("click", async () => {
     
-    
-    
-    
-    
-    
-  
-  
-
-
-
-document.getElementById("share-button").addEventListener("click", async () => {
-  const activeSwatch = document.querySelector(".border-white");
-  let colorName = activeSwatch ? activeSwatch.alt.toLowerCase().replace(/\s+/g, "-") : "";
-
-  const shareData = {
-    title: document.title,
-    text: "Check out this amazing product!",
-    url: `${window.location.origin}${window.location.pathname}?color=${encodeURIComponent(colorName)}`
-  };
-
-  try {
-    if (navigator.share) {
-      await navigator.share(shareData);
-      console.log("Product shared successfully");
-    } else {
-      alert("Your browser does not support the share feature. Copy the URL instead!");
+    const colorName = swatches[currentIndex]?.name || "";
+    const shareData = {
+      title: document.title,
+      text: "Check out this amazing product!",
+      url: `${window.location.origin}${window.location.pathname}?color=${encodeURIComponent(colorName)}`
+    };
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        
+        await navigator.clipboard.writeText(shareData.url);
+        alert("Link copied!");
+      }
+    } catch (err) {
+      console.error("Error sharing:", err);
     }
-  } catch (err) {
-    console.error("Error sharing:", err);
-  }
-});
+  });
+}
+
+
+const orderBtn = document.getElementById("order-button");
+if (orderBtn) {
+  orderBtn.addEventListener("click", () => {
+    
+    const colorName = swatches[currentIndex]?.name || "";
+    const orderUrl = `${window.location.origin}${window.location.pathname}?color=${encodeURIComponent(colorName)}`;
+    const message = `Hello! I’d like to order this product: ${document.title} in color ${colorName}. Here’s the link: ${orderUrl}`;
+
+    
+    const phoneNumber = "919899916151";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  });
+}
 
 
 window.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const colorParam = urlParams.get("color"); 
-  if (colorParam) {
-    const index = swatches.findIndex(el => el.name === colorParam.toLowerCase());
-    if (index >= 0 && index !== currentIndex) {
-      changeColor(swatches[index].src, index);
+  const colorFromUrl = new URLSearchParams(window.location.search).get("color");
+  if (colorFromUrl) {
+    const idx = swatches.findIndex(el => el.name === colorFromUrl.toLowerCase());
+    if (idx >= 0 && idx !== currentIndex) {
+      changeColor(swatches[idx].src, idx);
+    } else {
+      
+      highlightSwatch(currentIndex);
     }
+  } else {
+    
+    highlightSwatch(currentIndex);
   }
 });
 </script>
+
 
   </main>
 

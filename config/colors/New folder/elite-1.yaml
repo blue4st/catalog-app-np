@@ -1,0 +1,29 @@
+colors:
+  - name: Rose Pink
+    image: rose-pink.jpg
+    color: "#1a1a1a"
+  - name: Light Desert
+    image: light-desert.jpg
+    color: "#d2b48c"
+  - name: Mehndi Green
+    image: mehndi-green.jpg
+    color: "#f5f5f5"    
+  - name: Butter Cream
+    image: butter-cream.jpg
+    color: "#1a1a1a"
+  - name: Cloud Grey
+    image: cloud-grey.jpg
+    color: "#d2b48c"
+  - name: Golden Desert
+    image: golden-desert.jpg
+    color: "#1a1a1a"
+  - name: Obsedian Brown
+    image: obsedian-brown.jpg
+    color: "#d2b48c"
+  - name: Euro Green
+    image: euro-green.jpg
+    color: "#f5f5f5"
+  - name: Rust Orange
+    image: rust-orange.jpg
+    color: "#f5f5f5" 
+     

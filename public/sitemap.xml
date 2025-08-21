@@ -8,6 +8,8 @@
   </url><url>
     <loc>http://localhost:1313/products/classic/</loc>
   </url><url>
+    <loc>http://localhost:1313/contact/</loc>
+  </url><url>
     <loc>http://localhost:1313/products/elite/e01/</loc>
   </url><url>
     <loc>http://localhost:1313/products/elite/e02/</loc>
@@ -27,6 +29,26 @@
     <loc>http://localhost:1313/products/elite/e09/</loc>
   </url><url>
     <loc>http://localhost:1313/products/elite/</loc>
+  </url><url>
+    <loc>http://localhost:1313/story/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p01/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p02/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p03/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p04/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p05/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p06/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p07/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p08/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/p09/</loc>
   </url><url>
     <loc>http://localhost:1313/products/prime/</loc>
   </url><url>

@@ -4,3 +4,15 @@ elite:
     discount: 0
     selling_price: 2999
     launch_date: "2025-08-01"
+prime:
+  _default:
+    cost_price: 1999
+    discount: 0
+    selling_price: 1999
+    launch_date: "2025-08-01"
+classic:
+  _default:
+    cost_price: 1499
+    discount: 0
+    selling_price: 1499
+    launch_date: "2025-08-01"

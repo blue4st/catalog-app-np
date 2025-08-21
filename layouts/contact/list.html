@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main>
+  <!-- Page Title -->
+  <h1 class="text-4xl font-extrabold text-center mb-10">{{ .Title }}</h1>
+
+  <!-- Content Wrapper -->
+  <div>
+    {{ .Content | safeHTML }}
+  </div>
+</main>
+{{ end }}

@@ -47,14 +47,23 @@ def apply_mask(base_img, color_img, mask_img):
         mask_img = mask_img.convert("L")
     return Image.composite(color_img, base_img, mask_img)
 
+
 def is_light_image(image):
-    stat = ImageStat.Stat(image.convert("L"))
-    return stat.mean[0] > 127
+    
+    # Get stats for each channel (RGB)
+    stat = ImageStat.Stat(image)
+    r, g, b = stat.mean[:3]  # average values per channel
+    
+    # Perceived brightness (luminance)
+    brightness = 0.299*r + 0.587*g + 0.114*b
+    
+    print(f"Perceived central brightness: {brightness:.2f}")
+    return brightness > 140
 
 # === SWATCH GENERATION (runs only once per color) ===
-def ensure_swatch(color_def):
+def ensure_swatch(color_def, mode):
     swatch_output_path = os.path.join(STATIC_SWATCH_DIR, color_def["image"])
-    if os.path.exists(swatch_output_path):
+    if mode == "incremental" and os.path.exists(swatch_output_path):
         return
 
     color_img_path = os.path.join(STATIC_COLOR_DIR, color_def["image"])
@@ -70,16 +79,21 @@ def ensure_swatch(color_def):
     print(f"🎨 Swatch created: {swatch_output_path}")
 
 # === PRODUCT VARIANT GENERATION ===
-def save_variant(product_folder, base_file, color_def):
+def save_variant(product_folder, base_file, color_def, mode):
     image_name = os.path.splitext(base_file)[0]
-    base_path = os.path.join(BASE_IMG_DIR, base_file)
-    mask_path = os.path.join(MASK_IMG_DIR, f"{image_name}_mask.png")
-    overlay_path = os.path.join(OVERLAY_IMG_DIR, f"{image_name}_overlay_light.png")
+    category = os.path.basename(os.path.dirname(product_folder))
+
+    base_path = os.path.join(BASE_IMG_DIR, category, base_file)
+    mask_path_light = os.path.join(MASK_IMG_DIR, category, f"{image_name}_mask.png")
+    overlay_light_path = os.path.join(OVERLAY_IMG_DIR, category, f"{image_name}_overlay_light.png")
+    overlay_dark_path  = os.path.join(OVERLAY_IMG_DIR, category, f"{image_name}_overlay_dark.png")
+
     output_dir = product_folder
     os.makedirs(output_dir, exist_ok=True)
 
     color_img_path = os.path.join(STATIC_COLOR_DIR, color_def["image"])
-    if not all(os.path.exists(p) for p in [base_path, mask_path, color_img_path]):
+    # mask_path_light is required; overlays are optional
+    if not all(os.path.exists(p) for p in [base_path, mask_path_light, color_img_path]):
         print(f"⛔ Missing input files for '{base_file}' and color '{color_def['name']}'")
         return None
 
@@ -88,19 +102,19 @@ def save_variant(product_folder, base_file, color_def):
     output_path = os.path.join(output_dir, output_filename)
 
     # Incremental: skip if file already exists
-    if os.path.exists(output_path):
+    if mode == "incremental" and os.path.exists(output_path):
         print(f"⏭️ Skipping existing image: {output_path}")
         return color_def
 
     base = Image.open(base_path).convert("RGBA")
     color = Image.open(color_img_path).convert("RGBA").resize(base.size)
-    mask = Image.open(mask_path).resize(base.size)
+    mask = Image.open(mask_path_light).resize(base.size)
     output = apply_mask(base, color, mask)
 
-    # Overlay based on brightness
-    if is_light_image(output):
-        overlay_path = os.path.join(OVERLAY_IMG_DIR, f"{image_name}_overlay_dark.png")
-
+    # Choose overlay based on brightness (optional)
+    overlay_path = overlay_light_path
+    if is_light_image(color):
+        overlay_path = overlay_dark_path
     if os.path.exists(overlay_path):
         overlay = Image.open(overlay_path).resize(base.size)
         output = Image.alpha_composite(output, overlay)
@@ -109,12 +123,13 @@ def save_variant(product_folder, base_file, color_def):
     max_pixels = 1_000_000
     if output.width * output.height > max_pixels:
         scale = (max_pixels / (output.width * output.height)) ** 0.5
-        output = output.resize((int(output.width*scale), int(output.height*scale)), Image.LANCZOS)
+        output = output.resize((int(output.width * scale), int(output.height * scale)), Image.LANCZOS)
 
     output.save(output_path, format="WEBP", quality=85, method=6)
     print(f"✅ Saved WebP: {output_path}")
 
     return color_def
+
 
 # === WRITE INDEX.MD ===
 def write_index_md(product_folder, title, color_defs, default_color_img, pricing=None, description_text=""):
@@ -144,7 +159,7 @@ def write_index_md(product_folder, title, color_defs, default_color_img, pricing
     print(f"📝 index.md updated for {title}")
 
 # === MAIN PRODUCT GENERATION ===
-def generate_for_product(product_folder, pricing_data):
+def generate_for_product(product_folder, pricing_data, mode):
     product_name = os.path.basename(product_folder)
     category = os.path.basename(os.path.dirname(product_folder))
     print(f"\n🔍 Processing: {product_name} (Category: {category})")
@@ -156,20 +171,26 @@ def generate_for_product(product_folder, pricing_data):
 
     # Generate swatches (once per color)
     for color_def in colors:
-        ensure_swatch(color_def)
+        ensure_swatch(color_def, mode)
 
-    # Find base file
+    # Find base file in assets/base/<category>/
+    base_dir_for_cat = os.path.join(BASE_IMG_DIR, category)
+    if not os.path.isdir(base_dir_for_cat):
+        print(f"❌ Base image directory for category '{category}' not found: {base_dir_for_cat}")
+        return
+
     base_file = next(
-        (f for f in os.listdir(BASE_IMG_DIR) if os.path.splitext(f)[0]==product_name and f.lower().endswith((".jpg",".jpeg",".png"))),
+        (f for f in os.listdir(base_dir_for_cat)
+         if os.path.splitext(f)[0] == product_name and f.lower().endswith((".jpg", ".jpeg", ".png"))),
         None
     )
     if not base_file:
-        print(f"❌ No base image found for '{product_name}'")
+        print(f"❌ No base image found for '{product_name}' in '{base_dir_for_cat}'")
         return
 
     generated_defs = []
     for color_def in colors:
-        result = save_variant(product_folder, base_file, color_def)
+        result = save_variant(product_folder, base_file, color_def, mode)
         if result and result not in generated_defs:
             generated_defs.append(result)
 
@@ -198,28 +219,35 @@ def generate_for_product(product_folder, pricing_data):
 
     write_index_md(product_folder, product_name.replace("-", " ").title(), generated_defs, default_color_img, pricing, description_text)
 
+
 # === MAIN SCRIPT ===
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["full","incremental"], default="full")
     parser.add_argument("--product")
     args = parser.parse_args()
-
+    mode = args.mode
     pricing_data = load_pricing()
     print("✅ Script started")
     print(f"📦 Arguments: mode={args.mode}, product={args.product}\n")
 
-    # STEP 1: Scan base images and create folders if missing
-    for filename in os.listdir(BASE_IMG_DIR):
-        if not filename.lower().endswith((".jpg", ".jpeg", ".png")):
+    # STEP 1: Scan category folders under assets/base/<category>
+    for category in os.listdir(BASE_IMG_DIR):
+        category_base_path = os.path.join(BASE_IMG_DIR, category)
+        if not os.path.isdir(category_base_path):
             continue
-        product_name, _ = os.path.splitext(filename)
 
-        for category_file in os.listdir(COLOR_CONFIG_DIR):
-            category = os.path.splitext(category_file)[0]
-            category_path = os.path.join(CONTENT_PRODUCTS_DIR, category)
-            product_folder = os.path.join(category_path, product_name)
-            if os.path.exists(category_path) and not os.path.exists(product_folder):
+        # ensure content/products/<category> exists
+        category_content_path = os.path.join(CONTENT_PRODUCTS_DIR, category)
+        os.makedirs(category_content_path, exist_ok=True)
+
+        # create product folders for each base image in this category
+        for filename in os.listdir(category_base_path):
+            if not filename.lower().endswith((".jpg", ".jpeg", ".png")):
+                continue
+            product_name, _ = os.path.splitext(filename)
+            product_folder = os.path.join(category_content_path, product_name)
+            if not os.path.exists(product_folder):
                 os.makedirs(product_folder, exist_ok=True)
                 print(f"📁 Created missing product folder: {product_folder}")
 
@@ -231,9 +259,10 @@ def main():
         for product in os.listdir(category_path):
             product_folder = os.path.join(category_path, product)
             if os.path.isdir(product_folder):
-                generate_for_product(product_folder, pricing_data)
+                generate_for_product(product_folder, pricing_data, mode)
 
     print("\n✅ All variants generated successfully.")
+
 
 if __name__ == "__main__":
     main()
