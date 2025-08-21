@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/products/elite/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/prime/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/</loc>
+  </url><url>
     <loc>http://localhost:1313/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/products/classic/</loc>
   </url><url>
     <loc>http://localhost:1313/contact/</loc>
   </url><url>
@@ -28,8 +32,6 @@
   </url><url>
     <loc>http://localhost:1313/products/elite/e09/</loc>
   </url><url>
-    <loc>http://localhost:1313/products/elite/</loc>
-  </url><url>
     <loc>http://localhost:1313/story/</loc>
   </url><url>
     <loc>http://localhost:1313/products/prime/p01/</loc>
@@ -50,7 +52,7 @@
   </url><url>
     <loc>http://localhost:1313/products/prime/p09/</loc>
   </url><url>
-    <loc>http://localhost:1313/products/prime/</loc>
+    <loc>http://localhost:1313/pricing/</loc>
   </url><url>
     <loc>http://localhost:1313/products/</loc>
   </url><url>

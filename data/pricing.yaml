@@ -1,0 +1,174 @@
+albums:
+  - category: Eco Series
+    finishes:
+      - name: Eco Gloss
+        prices:
+          12x36|18x24: 25
+          13x39|14x40: x
+          15x30|20x30: x
+
+  - category: Classic Series
+    finishes:
+      - name: High Gloss/Silky Matte
+        prices:
+          12x36|18x24: "30/32"
+          13x39|14x40: 
+          15x30|20x30: 
+
+  - category: Prime Series
+    finishes:
+      - name: HD High Gloss/Silky Matte
+        prices:
+          12x36|18x24: "35/37"
+          13x39|14x40: 40
+          15x30|20x30: 50
+      - name: Super HD High Gloss/Silky Matte
+        prices:
+          12x36|18x24: "40/42"
+          13x39|14x40: x
+          15x30|20x30: x
+      - name: HD Photo Matte
+        prices:
+          12x36|18x24: 50
+          13x39|14x40: x
+          15x30|20x30: x
+      - name: HD Soft Touch Velvet
+        prices:
+          12x36|18x24: 50
+          13x39|14x40: 60
+          15x30|20x30: 70
+      - name: HD Sparkle
+        prices:
+          12x36|18x24: 60
+          13x39|14x40: x
+          15x30|20x30: x
+      - name: NTR Slim (Glossy/Matte)
+        prices:
+          12x36|18x24: 50
+          13x39|14x40: 60
+          15x30|20x30: 75
+      - name: Transparent Sheet
+        prices:
+          12x36|18x24: 50
+          13x39|14x40: 100
+          15x30|20x30: 100
+
+  - category: Plush Series
+    finishes:
+      - name: NTR Heavy (Glossy/Matte)
+        prices:
+          12x36|18x24: 60
+          13x39|14x40: 70
+          15x30|20x30: 85
+      - name: NTR Slim/Heavy (Velvet)
+        prices:
+          12x36|18x24: "75/90"
+          13x39|14x40: "85/100"
+          15x30|20x30: "100/120"
+
+  - category: Lavish Series
+    finishes:
+      - name: Premium Lustre
+        prices:
+          12x36|18x24: 70
+          13x39|14x40: 80
+          15x30|20x30: 90
+      - name: HD Pearl Metallic (Glossy/Matte)
+        prices:
+          12x36|18x24: 90
+          13x39|14x40: 120
+          15x30|20x30: 150
+      - name: HD Dual Metallic (Glossy/Matte)
+        prices:
+          12x36|18x24: 90
+          13x39|14x40: 120
+          15x30|20x30: 150
+      - name: Emboss Touch (Single Side)
+        prices:
+          12x36|18x24: 300
+          13x39|14x40: 500
+          15x30|20x30: 700
+      - name: Emboss Touch (Double Side)
+        prices:
+          12x36|18x24: 400
+          13x39|14x40: 700
+          15x30|20x30: 900
+
+  - category: Add Ons
+    finishes:
+      - name: Minibook (6x9 inches)
+        prices:
+          12x36|18x24: 15
+          13x39|14x40: x
+          15x30|20x30: x
+      - name: Table Calendar (6x9 Inches)
+        prices:
+          12x36|18x24: 300
+          13x39|14x40: x
+          15x30|20x30: x
+      - name: Table Standees
+        prices:
+          12x36|18x24: "100-150"
+          13x39|14x40: x
+          15x30|20x30: x
+      - name: Fridge Magnets
+        prices:
+          12x36|18x24: "100-150"
+          13x39|14x40: x
+          15x30|20x30: x
+      - name: Acrylic Wall Clock (12x18 Inch)
+        prices:
+          12x36|18x24: 1200
+          13x39|14x40: x
+          15x30|20x30: x
+covers:
+  - name: Photo Cover
+    prices:
+      12x36|18x24: 450
+      13x39|14x40: 650
+      15x30|20x30: 850
+  - name: 3D Cover
+    prices:
+      12x36|18x24: 500
+      13x39|14x40: 700
+      15x30|20x30: 900
+  - name: Sparkle Cover
+    prices:
+      12x36|18x24: 500
+      13x39|14x40: 700
+      15x30|20x30: 900
+  - name: Acrylic Cover
+    prices:
+      12x36|18x24: 800
+      13x39|14x40: 1000
+      15x30|20x30: 1200
+  - name: Double Acrylic
+    prices:
+      12x36|18x24: 1500
+      13x39|14x40: 1800
+      15x30|20x30: 2100
+  - name: Cut Acrylic Cover
+    prices:
+      12x36|18x24: 1000
+      13x39|14x40: 1500
+      15x30|20x30: 1500
+  - name: Acrylic Cover Metallic
+    prices:
+      12x36|18x24: 1000
+      13x39|14x40: 1200
+      15x30|20x30: 1500
+  - name: Emboss Cover Single Side/DoubleSide
+    prices:
+      12x36|18x24: "950/1250"
+      13x39|14x40: "1000/1300"
+      15x30|20x30: "1100/1400"
+  - name: Combos
+    prices:
+      12x36|18x24: "1200-5000"
+      13x39|14x40: "1700-6000"
+      15x30|20x30: "1700-6000"
+  - name: UV Naming
+    prices:
+      12x36|18x24: 250
+      13x39|14x40: 250
+      15x30|20x30: 250

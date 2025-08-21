@@ -1,0 +1,112 @@
+{{ define "main" }}
+<main class="px-4 py-8 text-gray-100 min-h-screen">
+
+  <h1 class="text-4xl font-extrabold text-center mb-10">Pricing</h1>
+
+  {{/* === Albums === */}}
+  {{ range .Site.Data.pricing.albums }}
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4 ">{{ .category }}</h2>
+
+      {{ $finishes := .finishes }}
+      {{ if gt (len $finishes) 0 }}
+        {{ $first := index $finishes 0 }}
+
+        <div class="overflow-x-auto rounded-xl shadow-lg border border-gray-700">
+          <table class="table-auto border-collapse w-full text-sm">
+            <thead>
+              <tr class="bg-blue-600/80 text-blue-200">
+                <th class="px-4 py-2 border border-gray-700 text-left">Finish</th>
+                {{ range $k, $v := $first.prices }}
+                  <th class="px-4 py-2 border border-gray-700 text-center">{{ $k }}</th>
+                {{ end }}
+              </tr>
+            </thead>
+            <tbody>
+              {{ range $finish := $finishes }}
+                <tr class="hover:bg-blue-900/30 transition">
+                  <td class="px-4 py-2 border border-gray-700 font-medium">{{ $finish.name }}</td>
+
+                  {{ range $k, $v := $first.prices }}
+                    <td class="px-4 py-2 border border-gray-700 text-center">
+                      {{ $val := index $finish.prices $k }}
+                      {{ if or (eq $val "x") (eq $val nil) }}
+                        <span class="text-gray-500">—</span>
+                      {{ else }}
+                        <span class="">{{ $val }}</span>
+                      {{ end }}
+                    </td>
+                  {{ end }}
+                </tr>
+              {{ end }}
+            </tbody>
+          </table>
+        </div>
+      {{ end }}
+    </section>
+  {{ end }}
+
+{{/* === Covers === */}}
+{{ with .Site.Data.pricing.covers }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 ">Covers</h2>
+
+    <div class="overflow-x-auto rounded-xl shadow-lg border border-gray-700">
+      <table class="table-auto border-collapse w-full text-sm">
+        <thead>
+          <tr class="bg-blue-600/80 text-blue-200">
+            <th class="px-4 py-2 border border-gray-700 text-left">Cover Type</th>
+            {{ $first := index . 0 }}
+            {{ range $k, $v := $first.prices }}
+              <th class="px-4 py-2 border border-gray-700 text-center">{{ $k }}</th>
+            {{ end }}
+          </tr>
+        </thead>
+        <tbody>
+          {{ range $cover := . }}
+            <tr class="hover:bg-blue-900/30 transition">
+              <td class="px-4 py-2 border border-gray-700 font-medium">{{ $cover.name }}</td>
+              {{ range $k, $v := $first.prices }}
+                <td class="px-4 py-2 border border-gray-700 text-center ">
+                  {{ $val := index $cover.prices $k }}
+                  {{ if or (eq $val "x") (eq $val nil) }}
+                    <span class="text-gray-500">—</span>
+                  {{ else }}
+                    <span>{{ $val }}</span>
+                  {{ end }}
+                </td>
+              {{ end }}
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+{{/* === Order Now Button === */}}
+<div class="flex justify-center mt-6">
+  <button id="order-button"
+          class="bg-lime-400 text-black hover:bg-lime-500 transition flex items-center gap-2 text-sm px-6 py-2 rounded font-semibold justify-center">
+    <i class="fab fa-whatsapp"></i> Order Now
+  </button>
+</div>
+{{ end }}
+</main>
+
+<script>
+// === Order Now button for pricing page ===
+const orderBtn = document.getElementById("order-button");
+if (orderBtn) {
+  orderBtn.addEventListener("click", () => {
+    const productTitle = document.title || "Pricing Page";
+    const orderUrl = window.location.href;
+
+    const message = `Hello! I’d like to place an order from ${productTitle}. Please get in touch. Thanks.`;
+    const phoneNumber = "919899916151"; // India number
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  });
+}
+</script>
+
+{{ end }}
