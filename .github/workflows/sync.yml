@@ -25,14 +25,22 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-      - name: Remove pricing from index.md files
+      - name: Remove pricing from index.md files, pricing page, and header link
         run: |
           echo "🧹 Removing pricing fields from index.md files..."
-          find content/products -name "index.md" -type f -exec sed -i '/^\s*\(cost_price\|discount\|selling_price\|launch_date\):/d' {} +
-          git add content/products
-          git commit -m "Remove pricing fields for catalog-app-np" || echo "No changes to commit"
-          echo "✅ Pricing fields removed"
-
+          find content/products -name "index.md" -type f \
+            -exec sed -i '/^\s*\(cost_price\|discount\|selling_price\|launch_date\):/d' {} +
+          
+          echo "🧹 Removing pricing page tree..."
+          rm -rf content/pricing
+          
+          echo "🧹 Removing pricing link from header..."
+          sed -i '/href="\/pricing\/"/d' layouts/partials/header.html
+          
+          git add content/products content/pricing layouts/partials/header.html || true
+          git commit -m "Remove pricing fields, pricing page, and header link for catalog-app-np" || echo "No changes to commit"
+          echo "✅ Pricing cleanup done"
+          
       - name: Push cleaned changes to target repository
         run: |
           git remote remove catalog-app-np || true
