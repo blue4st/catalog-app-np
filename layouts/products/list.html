@@ -65,37 +65,62 @@
     </a>
   </div>
 
-  <!-- Content section (outside stage) -->
-  <div class="p-4 flex flex-col justify-between bg-inherit">
-    <div>
-      <a href="{{ $p.RelPermalink }}">
-        <h2 class="text-xl font-semibold mb-1 group-hover:text-white text-zinc-300">{{ $p.Title }}</h2>
-      </a>
+<!-- Content section (outside stage) -->
+<div class="p-4 flex flex-col justify-between bg-inherit">
+  <div>
+    <a href="{{ $p.RelPermalink }}">
+      <h2 class="text-xl font-semibold mb-1 group-hover:text-white text-zinc-200">
+        {{ $p.Title }}
+      </h2>
+    </a>
 
-      {{ with $p.Params.selling_price }}
-        <p class="text-m text-lime-300 mb-1">₹ {{ . }}</p>
+    <!-- Price block -->
+    {{ with $p.Params.selling_price }}
+      {{ if gt . 0 }}
+        <div class="flex items-center gap-2 mb-1">
+          <!-- Selling price (highlighted) -->
+          <span class="text-lime-300 font-semibold text-lg">
+            ₹ {{ . }}
+          </span>
+
+          <!-- MRP (muted, strikethrough) -->
+          <span class="text-gray-400 line-through text-sm">
+            ₹ {{ $p.Params.cost_price }}
+          </span>
+
+          <!-- Discount (highlighted) -->
+          {{ if gt $p.Params.discount 0 }}
+            <span class="text-rose-400 font-semibold text-sm">
+              {{ $p.Params.discount }}% OFF
+            </span>
+          {{ end }}
+        </div>
       {{ end }}
-    </div>
-
-    {{ with $p.Params.colors }}
-      <div class="flex space-x-2 mt-3">
-        {{ range $i, $c := first 5 . }}
-          {{ $swatch := printf "/assets/swatches/%s.jpg" (lower (urlize $c.name)) }}
-          <img
-            src="{{ $swatch }}"
-            alt="{{ $c.name }}"
-            class="w-6 h-6 rounded-full border border-white object-cover cursor-pointer swatch-thumbnail"
-            title="{{ $c.name }}"
-            data-color-index="{{ $i }}"
-          />
-        {{ end }}
-        {{ if gt (len .) 5 }}
-          <span class="text-xs text-zinc-400">+{{ sub (len .) 5 }}</span>
-        {{ end }}
-      </div>
     {{ end }}
   </div>
+
+  {{ with $p.Params.colors }}
+    <div class="flex space-x-2 mt-3">
+      {{ range $i, $c := first 5 . }}
+        {{ $swatch := printf "/assets/swatches/%s.jpg" (lower (urlize $c.name)) }}
+        <img
+          src="{{ $swatch }}"
+          alt="{{ $c.name }}"
+          class="w-6 h-6 rounded-full border border-white object-cover cursor-pointer swatch-thumbnail"
+          title="{{ $c.name }}"
+          data-color-index="{{ $i }}"
+        />
+      {{ end }}
+      {{ if gt (len .) 5 }}
+        <span class="text-xs text-zinc-400">+{{ sub (len .) 5 }}</span>
+      {{ end }}
+    </div>
+  {{ end }}
 </div>
+</div>
+
+
+
 
 
       {{ end }}

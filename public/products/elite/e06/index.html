@@ -79,7 +79,7 @@
     
 	<img
       id="product-a"
-      src="/products/elite/e06/E06_steel-grey.webp"
+      src="/products/elite/e06/E06_velvet-green.webp"
       alt="E06"
       class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-700 ease-in-out"
     />
@@ -99,9 +99,24 @@
   
   
   
-  <span class="text-lg font-semibold text-xl text-lime-300">
-    ₹ 2999
-  </span>
+    
+      <div class="flex flex-col items-start">
+        <span class="font-semibold text-xl text-lime-300">
+          ₹ 2699
+        </span>
+		<div class="text-sm">
+          <span class="text-gray-400 line-through mr-2">
+            ₹ 2999
+          </span>
+          
+            <span class="text-rose-400 font-semibold text-sm">
+              (10% OFF)
+            </span>
+          
+        </div>
+        
+      </div>
+    
   
 
   
@@ -109,19 +124,21 @@
   
     
   
-<button id="order-button" 
-        data-color="/products/elite/e06/E06_steel-grey.webp"
-        class="bg-lime-400 text-black hover:bg-lime-500 transition flex items-center gap-2 text-sm px-6 py-2 rounded font-semibold mx-5 justify-center">
-  <i class="fab fa-whatsapp"></i> Order Now
-</button>
+  <button id="order-button" 
+          data-color="/products/elite/e06/E06_velvet-green.webp"
+          class="bg-lime-400 text-black hover:bg-lime-500 transition flex items-center gap-2 text-sm px-6 py-2 rounded font-semibold mx-5 justify-center">
+    <i class="fab fa-whatsapp"></i> Order Now
+  </button>
 
   
   <button id="share-button" 
-          data-color="/products/elite/e06/E06_steel-grey.webp"
+          data-color="/products/elite/e06/E06_velvet-green.webp"
           class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700 ">
     <i class="fas fa-share-alt"></i> Share
   </button>
 </div>
+
+
 
   
   <div id="swatch-bar" class="flex flex-wrap gap-2 justify-center max-w-xl">
@@ -699,7 +716,7 @@ let swatches = [
 ];
 
 
-let currentIndex = swatches.findIndex(el => el.src === "\/products\/elite\/e06\/E06_steel-grey.webp");
+let currentIndex = swatches.findIndex(el => el.src === "\/products\/elite\/e06\/E06_velvet-green.webp");
 
 
 const urlParams = new URLSearchParams(window.location.search);

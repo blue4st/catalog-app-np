@@ -39,21 +39,36 @@
   
   <!-- Price (left) -->
   {{ with .Params.selling_price }}
-  <span class="text-lg font-semibold text-xl text-lime-300">
-    ₹ {{ . }}
-  </span>
+    {{ if gt . 0 }}
+      <div class="flex flex-col items-start">
+        <span class="font-semibold text-xl text-lime-300">
+          ₹ {{ . }}
+        </span>
+		<div class="text-sm">
+          <span class="text-gray-400 line-through mr-2">
+            ₹ {{ $.Params.cost_price }}
+          </span>
+          {{ if gt $.Params.discount 0 }}
+            <span class="text-rose-400 font-semibold text-sm">
+              ({{ $.Params.discount }}% OFF)
+            </span>
+          {{ end }}
+        </div>
+        
+      </div>
+    {{ end }}
   {{ end }}
 
-  <!-- Order Now (center, wide) -->
+  <!-- Order Now (center, fixed) -->
   {{ $shareColor := "/images/missing.jpg" }}
   {{ if $default }}
     {{ $shareColor = $default.RelPermalink }}
   {{ end }}
-<button id="order-button" 
-        data-color="{{ $shareColor }}"
-        class="bg-lime-400 text-black hover:bg-lime-500 transition flex items-center gap-2 text-sm px-6 py-2 rounded font-semibold mx-5 justify-center">
-  <i class="fab fa-whatsapp"></i> Order Now
-</button>
+  <button id="order-button" 
+          data-color="{{ $shareColor }}"
+          class="bg-lime-400 text-black hover:bg-lime-500 transition flex items-center gap-2 text-sm px-6 py-2 rounded font-semibold mx-5 justify-center">
+    <i class="fab fa-whatsapp"></i> Order Now
+  </button>
 
   <!-- Share (right) -->
   <button id="share-button" 
@@ -62,6 +77,8 @@
     <i class="fas fa-share-alt"></i> Share
   </button>
 </div>
+
+
 
   <!-- Color Swatches -->
   <div id="swatch-bar" class="flex flex-wrap gap-2 justify-center max-w-xl">

@@ -2,8 +2,8 @@
 title: "E06"
 markup: "html"
 cost_price: 2999
-discount: 0
-selling_price: 2999
+discount: 10
+selling_price: 2699
 launch_date: 2025-08-01
 colors:
   - name: Velvet Green
@@ -69,7 +69,7 @@ colors:
   - name: Sunset Cream
     image: E06_sunset-cream.webp
     color: "#f5f5f5"
-default_color: E06_steel-grey.webp
+default_color: E06_velvet-green.webp
 ---
 
 Elite Series – 3 Piece Combo<br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Premium Album Box<br> 3. Matching Designer Bag<br><br> </span> <div class='max-w-xl mx-auto'> Personalized to make every delivery special. The album cover and box feature UV-printed couple names, while the matching bag carries your company logo, adding a touch of class and brand presence. </div> <div class='max-w-xl mx-auto text-b font-medium text-lime-300 mb-1'> <br>UV printing details<br> </div> <span class='text-r mb-1'> 1. Couple name on cover<br> 2. Couple name on box<br> 3. Couple name on bag<br> 4. Your logo on bag<br> </span>
