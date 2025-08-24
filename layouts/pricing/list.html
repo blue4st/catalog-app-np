@@ -1,12 +1,12 @@
 {{ define "main" }}
 <main class="px-4 py-8 text-gray-100 min-h-screen">
 
-  <h1 class="text-4xl font-extrabold text-center mb-10 text-blue-400">Pricing</h1>
+  <h1 class="text-4xl font-extrabold text-center mb-10">Pricing</h1>
 
   {{/* === Albums === */}}
   {{ range .Site.Data.pricing.albums }}
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4 text-blue-300">{{ .category }}</h2>
+      <h2 class="text-2xl font-semibold mb-4">{{ .category }}</h2>
 
       {{ $finishes := .finishes }}
       {{ if gt (len $finishes) 0 }}
@@ -15,7 +15,7 @@
         <div class="overflow-x-auto mobile-scroll-container" style="max-width: 100vw; -webkit-overflow-scrolling: touch;">
           <table class="table-auto min-w-[600px] border-collapse text-sm w-full">
             <thead>
-              <tr class="bg-blue-600/80 text-blue-200">
+              <tr class="bg-pink-600/80 text-pink-200">
                 <th class="px-4 py-2 border border-gray-700 text-left">Finish</th>
                 {{ range $k, $v := $first.prices }}
                   <th class="px-4 py-2 border border-gray-700 text-center">{{ $k }}</th>
@@ -49,12 +49,12 @@
   {{/* === Covers === */}}
   {{ with .Site.Data.pricing.covers }}
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4 text-blue-300">Covers</h2>
+      <h2 class="text-2xl font-semibold mb-4">Covers</h2>
 
       <div class="overflow-x-auto mobile-scroll-container" style="max-width: 100vw; -webkit-overflow-scrolling: touch;">
         <table class="table-auto min-w-[400px] border-collapse text-sm w-full">
           <thead>
-            <tr class="bg-blue-600/80 text-blue-200">
+            <tr class="bg-pink-600/80 text-pink-200">
               <th class="px-4 py-2 border border-gray-700 text-left">Cover Type</th>
               {{ $first := index . 0 }}
               {{ range $k, $v := $first.prices }}
