@@ -24,17 +24,20 @@
 	  <a href="/pricing/" class="text-gray-300 hover:text-white">Pricing</a>
     </nav>
   </div>
-</header>
+<meta property="og:title" content="E04" />
+<meta property="og:description" content="Check out this product!" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="http://localhost:1313/products/elite/e04/" />
+
 
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3L20GKTZX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-W3L20GKTZX');
-    </script>
   
+  
+  
+    <meta property="og:image" content="http://localhost:1313/products/elite/e04/E04_deep-blue.webp" />
+  
+
+</header>
 
 
   
@@ -826,6 +829,13 @@ function changeColor(newSrc, newIndex) {
     if (shareButton) shareButton.setAttribute("data-color", newSrc);
   };
   temp.src = newSrc;
+  
+  
+const swatchName = swatches[newIndex]?.name || "";
+logGAEvent("swatch_select", {
+  item_name: document.title,
+  color: swatchName
+});
 }
 
 
@@ -942,6 +952,14 @@ if (shareBtn) {
       text: "Check out this amazing product!",
       url: `${window.location.origin}${window.location.pathname}?color=${encodeURIComponent(colorName)}`
     };
+	
+	logGAEvent("share_click", {
+  item_name: document.title,
+  color: swatches[currentIndex]?.name || "",
+  method: navigator.share ? "native_share" : "copy_link"
+});
+
+
     try {
       if (navigator.share) {
         await navigator.share(shareData);
@@ -964,11 +982,20 @@ if (orderBtn) {
     const colorName = swatches[currentIndex]?.name || "";
     const orderUrl = `${window.location.origin}${window.location.pathname}?color=${encodeURIComponent(colorName)}`;
     const message = `Hello! I’d like to order this product: ${document.title} in color ${colorName}. Here’s the link: ${orderUrl}`;
+	
+  logGAEvent("order_now_click", {
+  item_name: document.title,
+  color: swatches[currentIndex]?.name || "",
+  currency: "INR",
+  price: "2699"
+});
 
     
     const phoneNumber = "919899916151";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
+	
+	
   });
 }
 
@@ -989,6 +1016,15 @@ window.addEventListener("DOMContentLoaded", () => {
     highlightSwatch(currentIndex);
   }
 });
+
+function logGAEvent(action, params = {}) {
+  if (typeof window.gtag !== "undefined") {
+    window.gtag("event", action, params);
+  } else {
+    console.debug("GA event (not sent, gtag missing):", action, params);
+  }
+}
+
 </script>
 
 

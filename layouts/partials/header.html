@@ -7,6 +7,19 @@
 	  <a href="/pricing/" class="text-gray-300 hover:text-white">Pricing</a>
     </nav>
   </div>
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ .Params.description | default "Check out this product!" }}" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{ with .Params.default_color }}
+  {{ $default := or ($.Resources.GetMatch .) ($.Resources.GetMatch (print . ".jpeg")) }}
+  {{ $default = or $default ($.Resources.GetMatch (print . ".png")) }}
+  {{ $default = or $default ($.Resources.GetMatch (print . ".webp")) }}
+  {{ if $default }}
+    <meta property="og:image" content="{{ $default.Permalink }}" />
+  {{ end }}
+{{ end }}
 </header>
 {{ if hugo.IsProduction }}
   {{ with .Site.Params.googleAnalytics }}

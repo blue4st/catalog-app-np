@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://catalog.printalo.in/'
 languageCode = 'en-us'
 title = 'Blue Forest Prints Catalog'
 theme = 'ananke'
