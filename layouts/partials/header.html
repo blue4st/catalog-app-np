@@ -12,17 +12,48 @@
 <meta property="og:type" content="product" />
 <meta property="og:url" content="{{ .Permalink }}" />
 
-{{ $page := . }} <!-- store current page -->
-{{ with .Params.default_color }}
-  {{ $src := or ($page.Resources.GetMatch (print . ".webp")) ($page.Resources.GetMatch (print . ".jpg")) ($page.Resources.GetMatch (print . ".png")) }}
-  {{ if $src }}
-    {{ $og := $src.Fit "1200x630 jpg" }}
-    <meta property="og:image" content="{{ $og.Permalink }}" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-  {{ end }}
-{{ end }}
+{{/* --- Robust OG image resolver (safe on any page) --- */}}
+{{- $pg := . -}}
+{{- $img := false -}}   {{/* use false as "empty" sentinel instead of nil */}}
+
+{{/* 1) Only if page has Resources */}}
+{{- with .Resources }}
+  {{- $res := . -}}
+  {{- with $pg.Params.default_color }}
+    {{- $name := . -}}
+    {{- $img = or
+        ($res.GetMatch (printf "%s.jpg"  $name))
+        ($res.GetMatch (printf "%s.jpeg" $name))
+        ($res.GetMatch (printf "%s.png"  $name))
+        ($res.GetMatch (printf "%s.webp" $name))
+    -}}
+  {{- end -}}
+
+  {{/* 2) Fallback: first image in this bundle */}}
+  {{- if not $img -}}
+    {{- $imgs := first 1 ($res.ByType "image") -}}
+    {{- if $imgs -}}
+      {{- $img = index $imgs 0 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* 3) Output OG tags */}}
+{{- if $img -}}
+  {{- $og := $img.Fill "1200x630 jpg" -}}
+  <meta property="og:image" content="{{ $og.Permalink }}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+{{- else -}}
+  <meta property="og:image" content="{{ printf "%simages/og-fallback.jpg" $pg.Site.BaseURL }}" />
+  <meta property="og:image:type" content="image/jpeg" />
+{{- end -}}
+
+
+
+
+
 </header>
 {{ if hugo.IsProduction }}
   {{ with .Site.Params.googleAnalytics }}
