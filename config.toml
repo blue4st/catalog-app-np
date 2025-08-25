@@ -2,3 +2,5 @@ baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
 title = 'Blue Forest Prints Catalog'
 theme = 'ananke'
+[params]
+  googleAnalytics = "G-W3L20GKTZX"
