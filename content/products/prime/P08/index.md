@@ -1,10 +1,6 @@
 ---
 title: "P08"
 markup: "html"
-cost_price: 1999
-discount: 20
-selling_price: 1599
-launch_date: 2025-08-01
 colors:
   - name: Velvet Green
     image: P08_velvet-green.webp
