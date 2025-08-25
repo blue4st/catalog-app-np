@@ -79,7 +79,7 @@
     
 	<img
       id="product-a"
-      src="/products/prime/p01/P01_sunset-cream.webp"
+      src="/products/prime/p01/P01_salmon-red.webp"
       alt="P01"
       class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-700 ease-in-out"
     />
@@ -125,14 +125,14 @@
     
   
   <button id="order-button" 
-          data-color="/products/prime/p01/P01_sunset-cream.webp"
+          data-color="/products/prime/p01/P01_salmon-red.webp"
           class="bg-lime-400 text-black hover:bg-lime-500 transition flex items-center gap-2 text-sm px-6 py-2 rounded font-semibold mx-5 justify-center">
     <i class="fab fa-whatsapp"></i> Order Now
   </button>
 
   
   <button id="share-button" 
-          data-color="/products/prime/p01/P01_sunset-cream.webp"
+          data-color="/products/prime/p01/P01_salmon-red.webp"
           class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700 ">
     <i class="fas fa-share-alt"></i> Share
   </button>
@@ -760,7 +760,7 @@ let swatches = [
 ];
 
 
-let currentIndex = swatches.findIndex(el => el.src === "\/products\/prime\/p01\/P01_sunset-cream.webp");
+let currentIndex = swatches.findIndex(el => el.src === "\/products\/prime\/p01\/P01_salmon-red.webp");
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -819,6 +819,7 @@ function changeColor(newSrc, newIndex) {
 }
 
 
+
 function highlightSwatch(index) {
   document.querySelectorAll('[id^="swatch-"]').forEach(el => {
     el.classList.remove("border-white");
@@ -842,56 +843,66 @@ async function fetchInventory() {
 
     
     oosColors = (data.colors || [])
-      .filter(c => c.available === false)
+      .filter(c => c && c.available === false && c.color)
       .map(c => c.color.toLowerCase());
 
+    
     oosProducts = (data.products || [])
-      .filter(p => p.available === false)
+      .filter(p => p && p.available === false && p.name)
       .map(p => p.name.toLowerCase());
 
     const productName = "p01";
 
     
-    if (oosProducts.includes(productName)) {
+    const currentColorName = swatches[currentIndex]?.name || "";
+    if (oosProducts.includes(productName) || oosColors.includes(currentColorName)) {
       if (orderBtn) {
         orderBtn.disabled = true;
         orderBtn.classList.add("bg-zinc-600", "cursor-not-allowed");
-        orderBtn.textContent = "Out of Stock";
+        orderBtn.textContent = "Color Out of Stock";	
       }
+    } else if (orderBtn) {
+      orderBtn.disabled = false;
+      orderBtn.classList.remove("bg-zinc-600", "cursor-not-allowed");
+      orderBtn.textContent = "Order Now";
     }
 
     
     swatches.forEach((sw, idx) => {
       const swatchEl = document.getElementById(`swatch-${idx}`);
-      if (oosColors.includes(sw.name)) {
-        if (swatchEl) {
-          const wrapper = swatchEl.parentElement;
-          swatchEl.classList.add("cursor-not-allowed", "opacity-50");
-          swatchEl.onclick = null;
+      if (!swatchEl) return;
 
-          let overlay = document.createElement("div");
-          overlay.textContent = "Out of Stock";
-          overlay.className =
-            "absolute inset-0 flex items-center justify-center text-[11px] font-semibold text-grey bg-grey/40 rounded-full pointer-events-none";
-          wrapper.appendChild(overlay);
-        }
+      const wrapper = swatchEl.parentElement;
+      wrapper.classList.add("relative"); 
+
+      
+      const existingOverlay = wrapper.querySelector(".oos-overlay");
+      if (existingOverlay) existingOverlay.remove();
+
+      if (oosColors.includes(sw.name.toLowerCase())) {
+        
+        swatchEl.classList.add("cursor-not-allowed", "opacity-50");
+        swatchEl.onclick = null;
+
+        
+        const overlay = document.createElement("div");
+        overlay.className =
+          "oos-overlay absolute top-0 left-0 w-full h-full flex items-center justify-center text-[12px] font-semibold text-white bg-rose-500/50 rounded-full pointer-events-none z-20 text-center";
+        overlay.textContent = "Out of Stock";
+
+        wrapper.appendChild(overlay);
+      } else {
+        
+        swatchEl.classList.remove("cursor-not-allowed", "opacity-50");
+        swatchEl.onclick = () => changeColor(sw.src, idx);
       }
     });
-
-    
-    const currentColorName = swatches[currentIndex]?.name || "";
-    if (oosColors.includes(currentColorName)) {
-      if (orderBtn) {
-        orderBtn.disabled = true;
-        orderBtn.classList.add("bg-zinc-600", "cursor-not-allowed");
-        orderBtn.textContent = "Out of Stock";
-      }
-    }
 
   } catch (err) {
     console.error("Failed to fetch inventory:", err);
   }
 }
+
 
 
 const container = document.getElementById("parallax-container");
