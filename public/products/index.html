@@ -231,121 +231,161 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".product-stage[data-images]").forEach(card => {
-    let productImages = [];
+  (async () => {
+    
+    let oosProducts = [];
     try {
-      productImages = JSON.parse(card.dataset.images);
-    } catch (e) {
-      console.error("Invalid data-images JSON for card:", e, card.dataset.images);
+      const res = await fetch("https://catalog-app-inventory-api.vercel.app/api/inventory");
+      const data = await res.json();
+      oosProducts = (data.products || [])
+        .filter(p => p && p.available === false && p.product)
+        .map(p => p.product.trim().toLowerCase());
+    } catch (err) {
+      console.error("Failed to fetch inventory:", err);
     }
 
-    const defaultIndex = parseInt(card.dataset.defaultIndex || "0", 10) || 0;
-    const imgEl = card.querySelector(".product-image");
-    const fallbackDiv = card.querySelector(".product-fallback");
-    const linkEl = card.querySelector(".product-link");
+    
+document.querySelectorAll(".product-stage[data-images]").forEach(card => {
+  let productImages = [];
+  try {
+    productImages = JSON.parse(card.dataset.images);
+  } catch (e) {
+    console.error("Invalid data-images JSON:", e, card.dataset.images);
+  }
 
-    const findValidIndex = (start) => {
-      if (!productImages || productImages.length === 0) return -1;
-      const n = productImages.length;
-      for (let i = 0; i < n; i++) {
-        const idx = (start + i) % n;
-        if (productImages[idx]) return idx;
-      }
-      return -1;
-    };
+  const defaultIndex = parseInt(card.dataset.defaultIndex || "0", 10) || 0;
+  const imgEl = card.querySelector(".product-image");
+  const fallbackDiv = card.querySelector(".product-fallback");
+  const linkEl = card.querySelector(".product-link");
 
-    let index = findValidIndex(defaultIndex);
-    if (index === -1) index = findValidIndex(0);
+  
+  const findValidIndex = (start) => {
+    if (!productImages || productImages.length === 0) return -1;
+    const n = productImages.length;
+    for (let i = 0; i < n; i++) {
+      const idx = (start + i) % n;
+      if (productImages[idx]) return idx;
+    }
+    return -1;
+  };
 
-    const updateImage = () => {
-      const url = (productImages[index] && productImages[index].length) ? productImages[index] : null;
-      if (url && imgEl) {
-        imgEl.src = url;
-        if (fallbackDiv) fallbackDiv.style.display = 'none';
-      } else if (fallbackDiv) {
-        fallbackDiv.style.display = 'flex';
-      }
-    };
+  let index = findValidIndex(defaultIndex);
+  if (index === -1) index = findValidIndex(0);
+
+  const updateImage = () => {
+    const url = productImages[index] || null;
+    if (url && imgEl) {
+      imgEl.src = url;
+      if (fallbackDiv) fallbackDiv.style.display = 'none';
+    } else if (fallbackDiv) {
+      fallbackDiv.style.display = 'flex';
+    }
+  };
+
+  const highlightSwatch = (i) => {
+    card.querySelectorAll(".swatch-thumbnail").forEach(s => s.classList.remove("swatch-selected"));
+    const target = card.querySelector(`.swatch-thumbnail[data-color-index="${i}"]`);
+    if (target) target.classList.add("swatch-selected");
+  };
+
+  if (index >= 0) {
+    updateImage();
+    highlightSwatch(index);
+  }
+
+  
+  
+  
+  const titleEl = card.closest(".group")?.querySelector("h2");
+  const productName = titleEl ? titleEl.textContent.trim().toLowerCase() : "";
+  const isOOS = oosProducts.includes(productName);
+
+  if (isOOS) {
+    
+    card.style.opacity = "0.6";
 
     
-    const highlightSwatch = (i) => {
-      card.querySelectorAll(".swatch-thumbnail").forEach(s => s.classList.remove("swatch-selected"));
-      const target = card.querySelector(`.swatch-thumbnail[data-color-index="${i}"]`);
-      if (target) target.classList.add("swatch-selected");
-    };
+    if (linkEl) linkEl.removeAttribute("href");
+    card.querySelectorAll("button, a").forEach(el => el.disabled = true);
 
     
-    const prevBtn = card.querySelector("[data-prev]");
-    const nextBtn = card.querySelector("[data-next]");
-    const navigate = (delta) => {
-      if (!productImages || productImages.length === 0) return;
-      const n = productImages.length;
-      for (let attempt = 0; attempt < n; attempt++) {
-        index = (index + delta + n) % n;
-        if (productImages[index]) break;
+    if (imgEl) {
+      imgEl.parentElement.style.position = "relative";
+      const label = document.createElement("span");
+      label.textContent = "Out of Stock";
+      label.className =
+        "oos-label absolute inset-0 flex items-center justify-center text-xl font-semibold text-white z-20 pointer-events-none";
+      imgEl.parentElement.appendChild(label);
+    }
+
+    
+    return; 
+  }
+
+  
+  
+  
+  const prevBtn = card.querySelector("[data-prev]");
+  const nextBtn = card.querySelector("[data-next]");
+  const navigate = (delta) => {
+    if (!productImages || productImages.length === 0) return;
+    const n = productImages.length;
+    for (let attempt = 0; attempt < n; attempt++) {
+      index = (index + delta + n) % n;
+      if (productImages[index]) break;
+    }
+    updateImage();
+    highlightSwatch(index);
+  };
+
+  if (prevBtn) prevBtn.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); navigate(-1); });
+  if (nextBtn) nextBtn.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); navigate(1); });
+
+  card.querySelectorAll(".swatch-thumbnail").forEach(swatch => {
+    swatch.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      const i = parseInt(swatch.dataset.colorIndex || "0", 10);
+      if (productImages[i]) {
+        index = i;
+        updateImage();
+        highlightSwatch(index);
       }
-      updateImage();
-      highlightSwatch(index);
-    };
-
-    if (prevBtn) prevBtn.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); navigate(-1); });
-    if (nextBtn) nextBtn.addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); navigate(1); });
-
-    
-    card.querySelectorAll(".swatch-thumbnail").forEach(swatch => {
-      swatch.addEventListener("click", e => {
-        e.preventDefault();
-        e.stopPropagation();
-        const i = parseInt(swatch.dataset.colorIndex || "0", 10);
-        if (productImages[i]) {
-          index = i;
-          updateImage();
-          highlightSwatch(index);
-        }
-      });
     });
-
-    
-    let touchStartX = 0;
-    let touchMoved = false;
-    const swipeThreshold = 40;
-    card.addEventListener("touchstart", e => {
-      touchStartX = e.touches[0].clientX;
-      touchMoved = false;
-    }, { passive: true });
-    card.addEventListener("touchmove", e => {
-      const dx = Math.abs(e.touches[0].clientX - touchStartX);
-      if (dx > 10) touchMoved = true;
-    }, { passive: true });
-    card.addEventListener("touchend", e => {
-      const touchEndX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : 0;
-      const diff = touchEndX - touchStartX;
-      if (!touchMoved) return;
-      card.dataset.swiped = "1";
-      setTimeout(() => { delete card.dataset.swiped; }, 400);
-      if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0) navigate(-1);
-        else navigate(1);
-      }
-    }, { passive: true });
-
-    if (linkEl) {
-      linkEl.addEventListener("click", function (ev) {
-        if (card.dataset.swiped) {
-          ev.preventDefault();
-          ev.stopPropagation();
-        }
-      }, true);
-    }
-
-    
-    if (index >= 0) {
-      updateImage();
-      highlightSwatch(index);
-    }
   });
+
+  
+  let touchStartX = 0;
+  let touchMoved = false;
+  const swipeThreshold = 40;
+  card.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; touchMoved = false; }, { passive: true });
+  card.addEventListener("touchmove", e => { const dx = Math.abs(e.touches[0].clientX - touchStartX); if (dx > 10) touchMoved = true; }, { passive: true });
+  card.addEventListener("touchend", e => {
+    const touchEndX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : 0;
+    const diff = touchEndX - touchStartX;
+    if (!touchMoved) return;
+    card.dataset.swiped = "1";
+    setTimeout(() => { delete card.dataset.swiped; }, 400);
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) navigate(-1);
+      else navigate(1);
+    }
+  }, { passive: true });
+
+  if (linkEl) {
+    linkEl.addEventListener("click", function (ev) {
+      if (card.dataset.swiped) {
+        ev.preventDefault();
+        ev.stopPropagation();
+      }
+    }, true);
+  }
+
+});
+  })(); 
 });
 </script>
+
 
 <style>
 .swatch-selected {
