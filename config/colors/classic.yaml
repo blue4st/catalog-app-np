@@ -2,9 +2,6 @@ colors:
   - name: Velvet Green
     image: velvet-green.jpg
     color: "#1a1a1a"
-  - name: Cloud Grey
-    image: cloud-grey.jpg
-    color: "#f5f5f5"
   - name: Dark Knight
     image: dark-knight.jpg
     color: "#d2b48c"

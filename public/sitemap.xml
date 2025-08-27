@@ -10,6 +10,20 @@
   </url><url>
     <loc>http://localhost:1313/</loc>
   </url><url>
+    <loc>http://localhost:1313/products/classic/c01/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/c02/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/c14/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/c15/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/c18/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/c20/</loc>
+  </url><url>
+    <loc>http://localhost:1313/products/classic/c21/</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/contact/</loc>

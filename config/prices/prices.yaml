@@ -57,7 +57,17 @@ prime:
     launch_date: "2025-08-01"
 classic:
   _default:
-    cost_price: 1499
-    discount: 10
-    selling_price: 1349
+    cost_price: 1699
+    discount: 12
+    selling_price: 1499
+    launch_date: "2025-08-01"
+  C01:
+    cost_price: 1699
+    discount: 30
+    selling_price: 1199
+    launch_date: "2025-08-01"
+  C02:
+    cost_price: 1699
+    discount: 30
+    selling_price: 1199
     launch_date: "2025-08-01"
