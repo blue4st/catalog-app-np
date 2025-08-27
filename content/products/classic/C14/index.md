@@ -1,10 +1,6 @@
 ---
 title: "C14"
 markup: "html"
-cost_price: 1699
-discount: 12
-selling_price: 1499
-launch_date: 2025-08-01
 colors:
   - name: Velvet Green
     image: C14_velvet-green.webp

@@ -1,10 +1,6 @@
 ---
 title: "P04"
 markup: "html"
-cost_price: 1999
-discount: 15
-selling_price: 1699
-launch_date: 2025-08-01
 colors:
   - name: Velvet Green
     image: P04_velvet-green.webp
