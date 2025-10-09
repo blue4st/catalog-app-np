@@ -69,7 +69,22 @@ colors:
   - name: Sunset Cream
     image: P09_sunset-cream.webp
     color: "#f5f5f5"
-default_color: P09_velvet-green.webp
+  - name: Metallic Grey
+    image: P09_metallic-grey.webp
+    color: "#1a1a1a"
+  - name: Baby Pink
+    image: P09_baby-pink.webp
+    color: "#1a1a1a"
+  - name: Sage Green
+    image: P09_sage-green.webp
+    color: "#d2b48c"
+  - name: Sunset Golden
+    image: P09_sunset-golden.webp
+    color: "#f5f5f5"
+  - name: Metallic Silver
+    image: P09_metallic-silver.webp
+    color: "#f5f5f5"
+default_color: P09_rose-pink.webp
 ---
 
 Prime Series – 2 Piece Combo<br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Matching Designer Bag<br><br> </span> <div class='max-w-xl mx-auto'> Personalized to make every delivery special. The album cover feature UV-printed couple names, while the matching bag carries your company logo, adding a touch of class and brand presence. </div> <div class='max-w-xl mx-auto text-b font-medium text-lime-300 mb-1'> <br>UV printing details<br> </div> <span class='text-r mb-1'> 1. Couple name on cover<br> 2. Couple name on bag<br> 3. Your logo on bag<br> </span>

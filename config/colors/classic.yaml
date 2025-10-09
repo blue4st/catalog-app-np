@@ -20,3 +20,9 @@ colors:
   - name: Velvet Blue
     image: velvet-blue.jpg
     color: "#1a1a1a"
+  - name: Baby Pink
+    image: baby-pink.jpg
+    color: "#1a1a1a"
+  - name: Sage Green
+    image: sage-green.jpg
+    color: "#d2b48c"
