@@ -33,7 +33,7 @@ colors:
   - name: Sage Green
     image: C18_sage-green.webp
     color: "#d2b48c"
-default_color: C18_salmon-red.webp
+default_color: C18_pro-grey.webp
 ---
 
 Classic Series – Evergreen Box Combos <br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Matching Designer Box<br><br> </span> <div class='max-w-xl mx-auto'> A premium album and matching box combo, both featuring large acrylic panels on the cover and lid for a bold, modern look. The big acrylic pieces provide striking coverage, giving the set a sleek, high-end finish that makes your memories stand out beautifully. </div>

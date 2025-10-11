@@ -62,7 +62,7 @@ colors:
   - name: Sunset Cream
     image: sunset-cream.jpg
     color: "#f5f5f5"
-     - name: Metallic Grey
+  - name: Metallic Grey
     image: metallic-grey.jpg
     color: "#1a1a1a"
   - name: Baby Pink

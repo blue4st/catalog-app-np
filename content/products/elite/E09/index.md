@@ -69,7 +69,22 @@ colors:
   - name: Sunset Cream
     image: E09_sunset-cream.webp
     color: "#f5f5f5"
-default_color: E09_sunset-cream.webp
+  - name: Metallic Grey
+    image: E09_metallic-grey.webp
+    color: "#1a1a1a"
+  - name: Baby Pink
+    image: E09_baby-pink.webp
+    color: "#1a1a1a"
+  - name: Sage Green
+    image: E09_sage-green.webp
+    color: "#d2b48c"
+  - name: Sunset Golden
+    image: E09_sunset-golden.webp
+    color: "#f5f5f5"
+  - name: Metallic Silver
+    image: E09_metallic-silver.webp
+    color: "#f5f5f5"
+default_color: E09_royal-red.webp
 ---
 
 Elite Series – 3 Piece Combo<br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Premium Album Box<br> 3. Matching Designer Bag<br><br> </span> <div class='max-w-xl mx-auto'> Personalized to make every delivery special. The album cover and box feature UV-printed couple names, while the matching bag carries your company logo, adding a touch of class and brand presence. </div> <div class='max-w-xl mx-auto text-b font-medium text-lime-300 mb-1'> <br>UV printing details<br> </div> <span class='text-r mb-1'> 1. Couple name on cover<br> 2. Couple name on box<br> 3. Couple name on bag<br> 4. Your logo on bag<br> </span>
