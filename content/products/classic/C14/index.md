@@ -33,6 +33,9 @@ colors:
   - name: Sage Green
     image: C14_sage-green.webp
     color: "#d2b48c"
+  - name: Steel Pink
+    image: C14_steel-pink.webp
+    color: "#d2b48c"
 default_color: C14_salmon-red.webp
 ---
 

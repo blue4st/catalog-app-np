@@ -1,0 +1,24 @@
+elite:
+  _default:
+    videos:
+      - "6OAgIudOA2I"   # Category-wide default video
+  E02:
+    videos:
+      - "6OAgIudOA2I"
+      - "6OAgIudOA2I"
+  E07:
+    videos:
+      - "6OAgIudOA2I"
+
+prime:
+  _default:
+    videos:
+      - "6OAgIudOA2I"
+  P02:
+    videos:
+      - "6OAgIudOA2I"
+
+classic:
+  _default:
+    videos:
+      - "6OAgIudOA2I"

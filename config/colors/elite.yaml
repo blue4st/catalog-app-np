@@ -1,7 +1,4 @@
 colors:
-  - name: Velvet Green
-    image: velvet-green.jpg
-    color: "#1a1a1a"
   - name: Butter Cream
     image: butter-cream.jpg
     color: "#d2b48c"
@@ -17,9 +14,6 @@ colors:
   - name: Deep Blue
     image: deep-blue.jpg
     color: "#d2b48c"
-  - name: Dove Brown
-    image: dove-brown.jpg
-    color: "#f5f5f5"
   - name: Euro Green
     image: euro-green.jpg
     color: "#f5f5f5" 
@@ -41,15 +35,9 @@ colors:
   - name: Rose Pink
     image: rose-pink.jpg
     color: "#f5f5f5" 
-  - name: Velvet Blue
-    image: velvet-blue.jpg
-    color: "#1a1a1a"
   - name: Royal Red
     image: royal-red.jpg
     color: "#d2b48c"   
-  - name: Ruby Red
-    image: ruby-red.jpg
-    color: "#1a1a1a"
   - name: Earth Clay
     image: earth-clay.jpg
     color: "#1a1a1a"

@@ -26,3 +26,6 @@ colors:
   - name: Sage Green
     image: sage-green.jpg
     color: "#d2b48c"
+  - name: Steel Pink
+    image: steel-pink.jpg
+    color: "#d2b48c"

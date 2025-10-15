@@ -6,9 +6,6 @@ discount: 50
 selling_price: 999
 launch_date: 2025-08-01
 colors:
-  - name: Velvet Green
-    image: P10_velvet-green.webp
-    color: "#1a1a1a"
   - name: Butter Cream
     image: P10_butter-cream.webp
     color: "#d2b48c"
@@ -24,9 +21,6 @@ colors:
   - name: Deep Blue
     image: P10_deep-blue.webp
     color: "#d2b48c"
-  - name: Dove Brown
-    image: P10_dove-brown.webp
-    color: "#f5f5f5"
   - name: Euro Green
     image: P10_euro-green.webp
     color: "#f5f5f5"
@@ -48,15 +42,9 @@ colors:
   - name: Rose Pink
     image: P10_rose-pink.webp
     color: "#f5f5f5"
-  - name: Velvet Blue
-    image: P10_velvet-blue.webp
-    color: "#1a1a1a"
   - name: Royal Red
     image: P10_royal-red.webp
     color: "#d2b48c"
-  - name: Ruby Red
-    image: P10_ruby-red.webp
-    color: "#1a1a1a"
   - name: Earth Clay
     image: P10_earth-clay.webp
     color: "#1a1a1a"
