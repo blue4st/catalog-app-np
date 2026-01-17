@@ -79,7 +79,7 @@
     
 	<img
       id="product-a"
-      src="/products/classic/c15/C15_salmon-red.webp"
+      src="/products/classic/c15/C15_velvet-blue.webp"
       alt="C15"
       class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-700 ease-in-out"
     />
@@ -125,14 +125,14 @@
     
   
   <button id="order-button" 
-          data-color="/products/classic/c15/C15_salmon-red.webp"
+          data-color="/products/classic/c15/C15_velvet-blue.webp"
           class="bg-lime-400 text-black hover:bg-lime-500 transition flex items-center gap-2 text-sm px-6 py-2 rounded font-semibold mx-5 justify-center">
     <i class="fab fa-whatsapp"></i> Order Now
   </button>
 
   
   <button id="share-button" 
-          data-color="/products/classic/c15/C15_salmon-red.webp"
+          data-color="/products/classic/c15/C15_velvet-blue.webp"
           class="hover:text-white transition flex items-center gap-1 text-sm px-3 py-1 rounded border border-zinc-700 ">
     <i class="fas fa-share-alt"></i> Share
   </button>
@@ -284,6 +284,66 @@
         <span class="mt-1 text-xs text-zinc-400">Velvet Blue</span>
       </div>
     
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <div class="relative w-10 h-10">
+		<img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/baby-pink.jpg"
+          alt="Baby Pink"
+          title="Baby Pink"
+          data-index="7"
+          onclick="changeColor('\/products\/classic\/c15\/C15_baby-pink.webp',  7 )"
+          id="swatch-7"
+        />
+		</div>
+        <span class="mt-1 text-xs text-zinc-400">Baby Pink</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <div class="relative w-10 h-10">
+		<img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/sage-green.jpg"
+          alt="Sage Green"
+          title="Sage Green"
+          data-index="8"
+          onclick="changeColor('\/products\/classic\/c15\/C15_sage-green.webp',  8 )"
+          id="swatch-8"
+        />
+		</div>
+        <span class="mt-1 text-xs text-zinc-400">Sage Green</span>
+      </div>
+    
+      
+      
+      
+      
+	  
+      <div class="flex flex-col items-center text-sm w-10 text-center">
+        <div class="relative w-10 h-10">
+		<img
+          class="w-10 h-10 rounded-full border-2 cursor-pointer object-cover"
+          src="/assets/swatches/steel-pink.jpg"
+          alt="Steel Pink"
+          title="Steel Pink"
+          data-index="9"
+          onclick="changeColor('\/products\/classic\/c15\/C15_steel-pink.webp',  9 )"
+          id="swatch-9"
+        />
+		</div>
+        <span class="mt-1 text-xs text-zinc-400">Steel Pink</span>
+      </div>
+    
   </div>
   
   <p class="text-xs text-zinc-500 mt-2 max-w-xl text-center italic">
@@ -363,12 +423,36 @@ let swatches = [
       src: "\/products\/classic\/c15\/C15_velvet-blue.webp",
       
       name: "velvet-blue"
+    },
+  
+    
+    
+    {
+      src: "\/products\/classic\/c15\/C15_baby-pink.webp",
+      
+      name: "baby-pink"
+    },
+  
+    
+    
+    {
+      src: "\/products\/classic\/c15\/C15_sage-green.webp",
+      
+      name: "sage-green"
+    },
+  
+    
+    
+    {
+      src: "\/products\/classic\/c15\/C15_steel-pink.webp",
+      
+      name: "steel-pink"
     }
   
 ];
 
 
-let currentIndex = swatches.findIndex(el => el.src === "\/products\/classic\/c15\/C15_salmon-red.webp");
+let currentIndex = swatches.findIndex(el => el.src === "\/products\/classic\/c15\/C15_velvet-blue.webp");
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -640,7 +724,7 @@ function logGAEvent(action, params = {}) {
 </a>
   </div>
   <div>
-    &copy; 2025 Blue Forest Prints. All rights reserved.
+    &copy; 2026 Blue Forest Prints. All rights reserved.
   </div>
   	<br>
 </footer>

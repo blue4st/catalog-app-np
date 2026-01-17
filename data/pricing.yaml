@@ -47,6 +47,11 @@ albums:
           12x36|18x24: 50
           13x39|14x40: 60
           15x30|20x30: 75
+      - name: Satin Touch
+        prices:
+          12x36|18x24: 50
+          13x39|14x40: x
+          15x30|20x30: x
       - name: Transparent Sheet
         prices:
           12x36|18x24: 50
