@@ -12,31 +12,49 @@ colors:
   - name: Dark Knight
     image: C21_dark-knight.webp
     color: "#d2b48c"
-  - name: Pro Grey
-    image: C21_pro-grey.webp
-    color: "#d2b48c"
-  - name: Pro Tan
-    image: C21_pro-tan.webp
-    color: "#f5f5f5"
   - name: Salmon Red
     image: C21_salmon-red.webp
     color: "#d2b48c"
-  - name: Ruby Maroon
-    image: C21_ruby-maroon.webp
-    color: "#f5f5f5"
   - name: Velvet Blue
     image: C21_velvet-blue.webp
     color: "#1a1a1a"
   - name: Baby Pink
     image: C21_baby-pink.webp
     color: "#1a1a1a"
-  - name: Sage Green
-    image: C21_sage-green.webp
+  - name: Butter Cream
+    image: C21_butter-cream.webp
     color: "#d2b48c"
-  - name: Steel Pink
-    image: C21_steel-pink.webp
-    color: "#d2b48c"
-default_color: C21_steel-pink.webp
+  - name: Dark Brown
+    image: C21_dark-brown.webp
+    color: "#1a1a1a"
+  - name: Forest Green
+    image: C21_forest-green.webp
+    color: "#1a1a1a"
+  - name: Navy Blue
+    image: C21_navy-blue.webp
+    color: "#1a1a1a"
+  - name: Steel Grey
+    image: C21_steel-grey.webp
+    color: "#f5f5f5"
+  - name: Sunset Cream
+    image: C21_sunset-cream.webp
+    color: "#f5f5f5"
+  - name: Kid Blue
+    image: C21_kid-blue.webp
+    color: "#1a1a1a"
+  - name: Sky Blue
+    image: C21_sky-blue.webp
+    color: "#1a1a1a"
+  - name: Sun Tan
+    image: C21_sun-tan.webp
+    color: "#1a1a1a"
+  - name: Cute Peach
+    image: C21_cute-peach.webp
+    color: "#1a1a1a"
+  - name: Retro Red
+    image: C21_retro-red.webp
+    color: "#1a1a1a"
+default_color: C21_dark-knight.webp
 ---
 
 Classic Series – Evergreen Box Combos <br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Matching Designer Box<br><br> </span> <div class='max-w-xl mx-auto'> A premium album and matching box combo, both featuring large acrylic panels on the cover and lid for a bold, modern look. The big acrylic pieces provide striking coverage, giving the set a sleek, high-end finish that makes your memories stand out beautifully. </div>

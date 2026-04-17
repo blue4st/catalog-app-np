@@ -6,73 +6,55 @@ discount: 20
 selling_price: 1599
 launch_date: 2025-08-01
 colors:
-  - name: Butter Cream
-    image: P09_butter-cream.webp
-    color: "#d2b48c"
-  - name: Cloud Grey
-    image: P09_cloud-grey.webp
-    color: "#f5f5f5"
-  - name: Dark Brown
-    image: P09_dark-brown.webp
+  - name: Velvet Green
+    image: P09_velvet-green.webp
     color: "#1a1a1a"
   - name: Dark Knight
     image: P09_dark-knight.webp
     color: "#d2b48c"
-  - name: Deep Blue
-    image: P09_deep-blue.webp
-    color: "#d2b48c"
-  - name: Euro Green
-    image: P09_euro-green.webp
-    color: "#f5f5f5"
-  - name: Forest Green
-    image: P09_forest-green.webp
-    color: "#1a1a1a"
-  - name: Golden Desert
-    image: P09_golden-desert.webp
-    color: "#d2b48c"
-  - name: Light Desert
-    image: P09_light-desert.webp
-    color: "#1a1a1a"
-  - name: Mehndi Green
-    image: P09_mehndi-green.webp
-    color: "#d2b48c"
-  - name: Navy Blue
-    image: P09_navy-blue.webp
-    color: "#1a1a1a"
-  - name: Rose Pink
-    image: P09_rose-pink.webp
-    color: "#f5f5f5"
-  - name: Royal Red
-    image: P09_royal-red.webp
-    color: "#d2b48c"
-  - name: Earth Clay
-    image: P09_earth-clay.webp
-    color: "#1a1a1a"
   - name: Salmon Red
     image: P09_salmon-red.webp
     color: "#d2b48c"
+  - name: Velvet Blue
+    image: P09_velvet-blue.webp
+    color: "#1a1a1a"
+  - name: Baby Pink
+    image: P09_baby-pink.webp
+    color: "#1a1a1a"
+  - name: Butter Cream
+    image: P09_butter-cream.webp
+    color: "#d2b48c"
+  - name: Dark Brown
+    image: P09_dark-brown.webp
+    color: "#1a1a1a"
+  - name: Forest Green
+    image: P09_forest-green.webp
+    color: "#1a1a1a"
+  - name: Navy Blue
+    image: P09_navy-blue.webp
+    color: "#1a1a1a"
   - name: Steel Grey
     image: P09_steel-grey.webp
     color: "#f5f5f5"
   - name: Sunset Cream
     image: P09_sunset-cream.webp
     color: "#f5f5f5"
-  - name: Metallic Grey
-    image: P09_metallic-grey.webp
+  - name: Kid Blue
+    image: P09_kid-blue.webp
     color: "#1a1a1a"
-  - name: Baby Pink
-    image: P09_baby-pink.webp
+  - name: Sky Blue
+    image: P09_sky-blue.webp
     color: "#1a1a1a"
-  - name: Sage Green
-    image: P09_sage-green.webp
-    color: "#d2b48c"
-  - name: Sunset Golden
-    image: P09_sunset-golden.webp
-    color: "#f5f5f5"
-  - name: Metallic Silver
-    image: P09_metallic-silver.webp
-    color: "#f5f5f5"
-default_color: P09_cloud-grey.webp
+  - name: Sun Tan
+    image: P09_sun-tan.webp
+    color: "#1a1a1a"
+  - name: Cute Peach
+    image: P09_cute-peach.webp
+    color: "#1a1a1a"
+  - name: Retro Red
+    image: P09_retro-red.webp
+    color: "#1a1a1a"
+default_color: P09_butter-cream.webp
 ---
 
 Prime Series – 2 Piece Combo<br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Matching Designer Bag<br><br> </span> <div class='max-w-xl mx-auto'> Personalized to make every delivery special. The album cover feature UV-printed couple names, while the matching bag carries your company logo, adding a touch of class and brand presence. </div> <div class='max-w-xl mx-auto text-b font-medium text-lime-300 mb-1'> <br>UV printing details<br> </div> <span class='text-r mb-1'> 1. Couple name on cover<br> 2. Couple name on bag<br> 3. Your logo on bag<br> </span>

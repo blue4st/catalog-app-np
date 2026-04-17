@@ -20,8 +20,8 @@ albums:
       - name: HD High Gloss/Silky Matte
         prices:
           12x36|18x24: "35/37"
-          13x39|14x40: 40
-          15x30|20x30: 50
+          13x39|14x40: 45
+          15x30|20x30: 55
       - name: Super HD High Gloss/Silky Matte
         prices:
           12x36|18x24: "40/42"
@@ -35,8 +35,8 @@ albums:
       - name: HD Soft Touch Velvet
         prices:
           12x36|18x24: 50
-          13x39|14x40: 60
-          15x30|20x30: 70
+          13x39|14x40: 65
+          15x30|20x30: 75
       - name: HD Sparkle
         prices:
           12x36|18x24: 60
@@ -45,8 +45,8 @@ albums:
       - name: NTR Slim (Glossy/Matte)
         prices:
           12x36|18x24: 50
-          13x39|14x40: 60
-          15x30|20x30: 75
+          13x39|14x40: 65
+          15x30|20x30: 80
       - name: Satin Touch
         prices:
           12x36|18x24: 50
@@ -55,16 +55,16 @@ albums:
       - name: Transparent Sheet
         prices:
           12x36|18x24: 50
-          13x39|14x40: 100
-          15x30|20x30: 100
+          13x39|14x40: 110
+          15x30|20x30: 120
 
   - category: Plush Series
     finishes:
       - name: NTR Heavy (Glossy/Matte)
         prices:
           12x36|18x24: 60
-          13x39|14x40: 70
-          15x30|20x30: 85
+          13x39|14x40: 75
+          15x30|20x30: 90
       - name: NTR Slim/Heavy (Velvet)
         prices:
           12x36|18x24: "75/90"
@@ -76,27 +76,27 @@ albums:
       - name: Premium Lustre
         prices:
           12x36|18x24: 70
-          13x39|14x40: 80
-          15x30|20x30: 90
+          13x39|14x40: 85
+          15x30|20x30: 95
       - name: HD Pearl Metallic (Glossy/Matte)
         prices:
           12x36|18x24: 90
-          13x39|14x40: 120
-          15x30|20x30: 150
+          13x39|14x40: 125
+          15x30|20x30: 155
       - name: HD Dual Metallic (Glossy/Matte)
         prices:
           12x36|18x24: 90
-          13x39|14x40: 120
-          15x30|20x30: 150
+          13x39|14x40: 125
+          15x30|20x30: 155
       - name: Emboss Touch (Single Side)
         prices:
           12x36|18x24: 300
-          13x39|14x40: 500
+          13x39|14x40: 600
           15x30|20x30: 700
       - name: Emboss Touch (Double Side)
         prices:
           12x36|18x24: 400
-          13x39|14x40: 700
+          13x39|14x40: 800
           15x30|20x30: 900
 
   - category: Add Ons

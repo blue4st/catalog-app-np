@@ -1,45 +1,30 @@
 colors:
-  - name: Butter Cream
-    image: butter-cream.jpg
-    color: "#d2b48c"
-  - name: Cloud Grey
-    image: cloud-grey.jpg
-    color: "#f5f5f5"    
-  - name: Dark Brown
-    image: dark-brown.jpg
+  - name: Velvet Green
+    image: velvet-green.jpg
     color: "#1a1a1a"
   - name: Dark Knight
     image: dark-knight.jpg
     color: "#d2b48c"
-  - name: Deep Blue
-    image: deep-blue.jpg
+  - name: Salmon Red
+    image: salmon-red.jpg
     color: "#d2b48c"
-  - name: Euro Green
-    image: euro-green.jpg
-    color: "#f5f5f5" 
+  - name: Velvet Blue
+    image: velvet-blue.jpg
+    color: "#1a1a1a"
+  - name: Baby Pink
+    image: baby-pink.jpg
+    color: "#1a1a1a"
+  - name: Butter Cream
+    image: butter-cream.jpg
+    color: "#d2b48c"
+  - name: Dark Brown
+    image: dark-brown.jpg
+    color: "#1a1a1a"
   - name: Forest Green
     image: forest-green.jpg
     color: "#1a1a1a"
-  - name: Golden Desert
-    image: golden-desert.jpg
-    color: "#d2b48c"    
-  - name: Light Desert
-    image: light-desert.jpg
-    color: "#1a1a1a"
-  - name: Mehndi Green
-    image: mehndi-green.jpg
-    color: "#d2b48c"
   - name: Navy Blue
     image: navy-blue.jpg
-    color: "#1a1a1a"
-  - name: Rose Pink
-    image: rose-pink.jpg
-    color: "#f5f5f5" 
-  - name: Royal Red
-    image: royal-red.jpg
-    color: "#d2b48c"   
-  - name: Earth Clay
-    image: earth-clay.jpg
     color: "#1a1a1a"
   - name: Salmon Red
     image: salmon-red.jpg
@@ -49,19 +34,22 @@ colors:
     color: "#f5f5f5"
   - name: Sunset Cream
     image: sunset-cream.jpg
-    color: "#f5f5f5"   
-  - name: Metallic Grey
-    image: metallic-grey.jpg
-    color: "#1a1a1a"
+    color: "#f5f5f5" 
   - name: Baby Pink
     image: baby-pink.jpg
     color: "#1a1a1a"
-  - name: Sage Green
-    image: sage-green.jpg
-    color: "#d2b48c"
-  - name: Sunset Golden
-    image: sunset-golden.jpg
-    color: "#f5f5f5"
-  - name: Metallic Silver
-    image: metallic-silver.jpg
-    color: "#f5f5f5"
+  - name: Kid Blue
+    image: kid-blue.jpg
+    color: "#1a1a1a"
+  - name: Sky Blue
+    image: sky-blue.jpg
+    color: "#1a1a1a"
+  - name: Sun Tan
+    image: sun-tan.jpg
+    color: "#1a1a1a"  
+  - name: Cute Peach
+    image: cute-peach.jpg
+    color: "#1a1a1a"
+  - name: Retro Red
+    image: retro-red.jpg
+    color: "#1a1a1a"     
