@@ -3,7 +3,7 @@ albums:
     finishes:
       - name: Eco Gloss
         prices:
-          12x36|18x24: 25
+          12x36|18x24: 27
           13x39|14x40: x
           15x30|20x30: x
 
@@ -11,7 +11,7 @@ albums:
     finishes:
       - name: High Gloss/Silky Matte
         prices:
-          12x36|18x24: "30/32"
+          12x36|18x24: "32/34"
           13x39|14x40: 
           15x30|20x30: 
 
@@ -19,17 +19,17 @@ albums:
     finishes:
       - name: HD High Gloss/Silky Matte
         prices:
-          12x36|18x24: "35/37"
-          13x39|14x40: 45
-          15x30|20x30: 55
+          12x36|18x24: "37/39"
+          13x39|14x40: 47
+          15x30|20x30: 57
       - name: Super HD High Gloss/Silky Matte
         prices:
-          12x36|18x24: "40/42"
+          12x36|18x24: "42/44"
           13x39|14x40: x
           15x30|20x30: x
       - name: HD Photo Matte
         prices:
-          12x36|18x24: 50
+          12x36|18x24: 52
           13x39|14x40: x
           15x30|20x30: x
       - name: HD Soft Touch Velvet
@@ -44,7 +44,7 @@ albums:
           15x30|20x30: x
       - name: NTR Slim (Glossy/Matte)
         prices:
-          12x36|18x24: 50
+          12x36|18x24: 52
           13x39|14x40: 65
           15x30|20x30: 80
       - name: Satin Touch
@@ -54,7 +54,7 @@ albums:
           15x30|20x30: x
       - name: Transparent Sheet
         prices:
-          12x36|18x24: 50
+          12x36|18x24: 52
           13x39|14x40: 110
           15x30|20x30: 120
 
@@ -62,7 +62,7 @@ albums:
     finishes:
       - name: NTR Heavy (Glossy/Matte)
         prices:
-          12x36|18x24: 60
+          12x36|18x24: 62
           13x39|14x40: 75
           15x30|20x30: 90
       - name: NTR Slim/Heavy (Velvet)
