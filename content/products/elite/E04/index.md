@@ -54,6 +54,9 @@ colors:
   - name: Retro Red
     image: E04_retro-red.webp
     color: "#1a1a1a"
+  - name: Rust Orange
+    image: E04_rust-orange.webp
+    color: "#1a1a1a"
 default_color: E04_cute-peach.webp
 ---
 

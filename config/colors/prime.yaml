@@ -52,4 +52,7 @@ colors:
     color: "#1a1a1a"
   - name: Retro Red
     image: retro-red.jpg
-    color: "#1a1a1a"     
+    color: "#1a1a1a"
+  - name: Rust Orange
+    image: rust-orange.jpg
+    color: "#1a1a1a"    

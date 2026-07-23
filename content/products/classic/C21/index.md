@@ -54,7 +54,10 @@ colors:
   - name: Retro Red
     image: C21_retro-red.webp
     color: "#1a1a1a"
-default_color: C21_steel-grey.webp
+  - name: Rust Orange
+    image: C21_rust-orange.webp
+    color: "#1a1a1a"
+default_color: C21_salmon-red.webp
 ---
 
 Classic Series – Evergreen Box Combos <br><br> <span class='text-b font-medium text-lime-300 mb-1'> 1. Elegant Album Cover<br> 2. Matching Designer Box<br><br> </span> <div class='max-w-xl mx-auto'> A premium album and matching box combo, both featuring large acrylic panels on the cover and lid for a bold, modern look. The big acrylic pieces provide striking coverage, giving the set a sleek, high-end finish that makes your memories stand out beautifully. </div>
