@@ -1,10 +1,6 @@
 ---
 title: "C02"
 markup: "html"
-cost_price: 1699
-discount: 30
-selling_price: 1199
-launch_date: 2025-08-01
 colors:
   - name: Velvet Green
     image: C02_velvet-green.webp

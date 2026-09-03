@@ -1,10 +1,6 @@
 ---
 title: "E07"
 markup: "html"
-cost_price: 2999
-discount: 15
-selling_price: 2549
-launch_date: 2025-08-01
 colors:
   - name: Velvet Green
     image: E07_velvet-green.webp

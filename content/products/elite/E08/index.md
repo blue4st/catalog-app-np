@@ -1,10 +1,6 @@
 ---
 title: "E08"
 markup: "html"
-cost_price: 2999
-discount: 15
-selling_price: 2549
-launch_date: 2025-08-01
 colors:
   - name: Velvet Green
     image: E08_velvet-green.webp

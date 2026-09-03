@@ -1,10 +1,6 @@
 ---
 title: "P10"
 markup: "html"
-cost_price: 1999
-discount: 50
-selling_price: 999
-launch_date: 2025-08-01
 colors:
   - name: Velvet Green
     image: P10_velvet-green.webp

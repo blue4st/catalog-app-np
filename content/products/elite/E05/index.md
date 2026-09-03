@@ -1,10 +1,6 @@
 ---
 title: "E05"
 markup: "html"
-cost_price: 2999
-discount: 10
-selling_price: 2699
-launch_date: 2025-08-01
 colors:
   - name: Velvet Green
     image: E05_velvet-green.webp
