@@ -1,16 +1,47 @@
 <header class="w-full border-b border-zinc-700 py-0 mb-6">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <nav class="space-x-6">
-      <a href="/products/" class="text-gray-100 hover:text-white">Products</a>
-      <a href="/story/" class="text-gray-300 hover:text-white">Our Story</a>
-      <a href="/contact/" class="text-gray-300 hover:text-white">Contact</a>
-	  <a href="/pricing/" class="text-gray-300 hover:text-white">Pricing</a>
-	  <a href="https://reviews.blueforestprints.com" ...>
-  Reviews
-</a>
+  <div class="max-w-6xl mx-auto px-4 py-3">
+
+    <nav class="flex flex-nowrap overflow-x-auto whitespace-nowrap gap-5 sm:gap-6 justify-start sm:justify-center scrollbar-hide text-sm sm:text-base">
+
+      <a href="/products/" class="shrink-0 text-gray-100 hover:text-white transition">
+        Products
+      </a>
+
+      <a href="/story/" class="shrink-0 text-gray-300 hover:text-white transition">
+        Our Story
+      </a>
+
+      <a href="/contact/" class="shrink-0 text-gray-300 hover:text-white transition">
+        Contact
+      </a>
+
+      <a href="/pricing/" class="shrink-0 text-gray-300 hover:text-white transition">
+        Pricing
+      </a>
+
+      <a href="https://reviews.blueforestprints.com"
+         class="shrink-0 text-gray-300 hover:text-white transition"
+         target="_blank"
+         rel="noopener noreferrer">
+        Reviews
+      </a>
+
     </nav>
+
   </div>
 </header>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
 {{ if hugo.IsProduction }}
   {{ with .Site.Params.googleAnalytics }}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
